@@ -68,7 +68,7 @@ export default class RXTrailTimePicker extends Component {
     var yearArray = [];
     var yearSelectIndex = 0;
     if (yearShow) {
-      yearArray = [(nowDateMap.year-1)+ ' 年', nowDateMap.year+ ' 年'];
+      yearArray = [(nowDateMap.year - 1) + ' 年', nowDateMap.year + ' 年'];
       if (nowDateMap.year === selectYear) {
         yearSelectIndex = 1;
       }
@@ -134,8 +134,8 @@ export default class RXTrailTimePicker extends Component {
     var index = 0;
     var MaxCount = limitDay;
     if ( year === nowDateMap.year && month === nowDateMap.month) {
-      if (nowDay>limitDay-1) {
-        index = nowDay-limitDay+1;
+      if (nowDay > limitDay - 1) {
+        index = nowDay - limitDay + 1;
       }
       else {
         MaxCount = nowDay;
@@ -151,9 +151,9 @@ export default class RXTrailTimePicker extends Component {
 
     var array = [];
     for (let i = 0; i<MaxCount; i++) {
-      let day = index+i;
+      let day = index + i;
       if (day === selectDay) selectIndex = i;
-      let dateString = day + ' 日 '+ this.getWeek(year, month, day);
+      let dateString = day + ' 日 ' + this.getWeek(year, month, day);
       if (dateString === selectDay) selectIndex = i;
       array.push(dateString);
     };
@@ -198,7 +198,7 @@ export default class RXTrailTimePicker extends Component {
     else {
       year = this.restoreNum(year);
     }
-    date.setFullYear(year, month-1, day);
+    date.setFullYear(year, month - 1, day);
     let week = date.getDay();
     let weekString = RXDateUtil.weekStringArray()[week] || week;
     return weekString;
@@ -226,7 +226,7 @@ export default class RXTrailTimePicker extends Component {
       maxHour = nowDateMap.hour;
     }
     var array = [];
-    var selectIndex = selectHour>maxHour?maxHour: 0;
+    var selectIndex = selectHour > maxHour ? maxHour : 0;
     for (let i=0; i<= maxHour; i++) {
       if (i === selectHour) selectIndex = i;
       let hourString = RXConvert2Digit(i) + ':00';
@@ -352,7 +352,7 @@ export default class RXTrailTimePicker extends Component {
 
     let hourString = hourArray[hourSelectIndex] || '12:00';
     let hour = hourString.split(':')[0] || 0;
-    currentDate.setFullYear(year, month-1, day);
+    currentDate.setFullYear(year, month - 1, day);
     currentDate.setHours(hour, 0, 0, 0);
     onConfirm && onConfirm(currentDate);
   }
@@ -365,14 +365,14 @@ export default class RXTrailTimePicker extends Component {
     } = this.state;
     let yearShow = yearArray.length;
 
-    let list = yearShow?
+    let list = yearShow ?
                 [yearArray, monthArray, dayArray, hourArray]
               : [monthArray, dayArray, hourArray];
 
-    let value = yearShow?
-                [yearSelectIndex, monthSelectIndex, daySelectIndex, hourSelectIndex]
-               :[monthSelectIndex, daySelectIndex, hourSelectIndex];
-    let proportion = yearShow?[0.5, 0.5, 2, 0,5]:[0.5, 2, 0,5];
+    let value = yearShow ?
+                  [yearSelectIndex, monthSelectIndex, daySelectIndex, hourSelectIndex]
+               :  [monthSelectIndex, daySelectIndex, hourSelectIndex];
+    let proportion = yearShow ? [0.5, 0.5, 2, 0,5] : [0.5, 2, 0,5];
     return <RXPicker 
             {...other}
             style={ {paddingBottom: 20} }

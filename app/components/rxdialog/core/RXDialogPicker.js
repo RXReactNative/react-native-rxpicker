@@ -41,7 +41,8 @@ export default class RXDialogPicker extends Component {
     static defaultProps = {
       visible: false,
       style: {},
-      superCallBack : {}
+      superCallBack : {},
+      overClickEnable: true,
     }
 
     componentWillReceiveProps(nextProps) {
@@ -56,7 +57,7 @@ export default class RXDialogPicker extends Component {
     createContentView(){
       // 需要子类去实现
       // throw Error('not implemented yet');
-      return(
+      return (
         <TouchableWithoutFeedback
               onPress={()=>{
                 this._superCallBack(-1);
@@ -70,9 +71,9 @@ export default class RXDialogPicker extends Component {
     }
 
     _superCallBack(action=0) {
-      if(action != 0) {
+      if (action != 0) {
         this._doAnimal(0, ()=>{
-          if(this.props.superCallBack) {
+          if (this.props.superCallBack) {
             this.props.superCallBack(action);
           } 
         })
@@ -85,11 +86,14 @@ export default class RXDialogPicker extends Component {
     }
 
     _overlay(){
-        return(
+      const {overClickEnable} = this.props;
+        return (
           <Animated.View style={[styles.overlay, this.overlayAnimal.animations]}>
             <TouchableWithoutFeedback
               onPress={()=>{
-                this._superCallBack(-1);
+                if (overClickEnable) {
+                  this._superCallBack(-1);
+                }
               }
             }>
               <View style={styles.overlay} />
@@ -99,7 +103,7 @@ export default class RXDialogPicker extends Component {
     }
 
     _content(){
-      return(
+      return (
         <Animated.View style={[styles.dialog, this.pickerAnimal.animations]}>
           {this.createContentView()}
         </Animated.View>
@@ -108,7 +112,7 @@ export default class RXDialogPicker extends Component {
 
 
     render() {
-      if(this.props.visible) {
+      if (this.props.visible) {
         return ( 
           <View style={[styles.container, styles.dialog]}>
             {this._overlay()}

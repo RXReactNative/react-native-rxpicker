@@ -13,7 +13,7 @@ import { DeviceWidth } from 'react-native-rxdialog'
 // 本地 采用
 import {
   RXDate,
-  RXSinglePicker,
+  RXTrailTimePicker,
  } from '../../../package/index'
 
 
@@ -24,37 +24,40 @@ import {
 
 const width = DeviceWidth;
 
-export default class BBSinglePicker extends RXDialogPicker {
+export default class BBTrailTimePicker extends RXDialogPicker {
   constructor(props){
     super(props);
+
+    let now = new Date();
     this.state = ({
-      selectValue: '00:00',
+      selectValues: now, // 当前日期
+      limitDay: 30, // 最少天数 (最早从这月出，到今天，，，不会到上个月)
     })
   }
 
   static defaultProps = {
     superCallBack: () => {},
     onChangeText: (e) => {},
-    overClickEnable: false,// no no  不可以点击
+    overClickEnable: true, // 可以点击
   }
 
 
   createContentView() {
     const { onChangeText } = this.props;
-    const {selectValue} = this.state;
+    const {selectValues, limitDay} = this.state;
     return(
       <View style={{width, backgroundColor: '#fff'}}>
-        <RXSinglePicker
+        <RXTrailTimePicker
           style={{flex:1}}
-          title={'时间选择'}
-          list={ RXDate.RXADay24Hours(true) }
-          selectValue={selectValue}
+          title={'分时时间选择'}
+          selectValues={selectValues}
+          limitDay={limitDay}
           dismiss={()=> this._superCallBack(-1)}
           onConfirm={(result) => { // 按照 需求自定义
-            console.log('BBSinglePicker result=>', result)
-            if(result === selectValue) return;
+            console.log('BBDoublePicker result=>', result)
+            if(result === selectValues) return;
             this.setState({
-              selectValue: result
+              selectValues: result
             })
             onChangeText && onChangeText(result)
             this._superCallBack(-1)

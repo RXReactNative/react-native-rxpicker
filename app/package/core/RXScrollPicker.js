@@ -341,6 +341,7 @@ export default class RXScrollPicker extends Component {
                 this.scrollers[scrollIndex] = c;
               },
               style: styles.scroller,
+              scrollEventThrottle: 20,
               showsVerticalScrollIndicator: false,
               contentContainerStyle: [styles.scrollerContentContainer],
               // onScrollEndDrag: (e) => { // 由于 react-native-web 版本不同，有的不支持

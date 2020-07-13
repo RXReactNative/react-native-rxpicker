@@ -13,7 +13,7 @@ import { DeviceWidth } from 'react-native-rxdialog'
 // 本地 采用
 import {
   RXDate,
-  RXSinglePicker,
+  RXDoublePicker,
  } from '../../../package/index'
 
 
@@ -24,37 +24,39 @@ import {
 
 const width = DeviceWidth;
 
-export default class BBSinglePicker extends RXDialogPicker {
+export default class BBDoublePicker extends RXDialogPicker {
   constructor(props){
     super(props);
     this.state = ({
-      selectValue: '00:00',
+      selectValues: [],
+      valueKey: '',
     })
   }
 
   static defaultProps = {
     superCallBack: () => {},
     onChangeText: (e) => {},
-    overClickEnable: false,// no no  不可以点击
+    overClickEnable: true, // 可以点击
   }
 
 
   createContentView() {
     const { onChangeText } = this.props;
-    const {selectValue} = this.state;
+    const {selectValues, valueKey} = this.state;
     return(
       <View style={{width, backgroundColor: '#fff'}}>
-        <RXSinglePicker
+        <RXDoublePicker
           style={{flex:1}}
-          title={'时间选择'}
-          list={ RXDate.RXADay24Hours(true) }
-          selectValue={selectValue}
+          title={'日期 + 时间选择'}
+          list={ [RXDate.RXWeekArray() ,RXDate.RXADay24Hours(true)] }
+          selectValues={selectValues}
+          // valueKey={valueKey} // 可不传，因每列数据源，不是 对象数组
           dismiss={()=> this._superCallBack(-1)}
           onConfirm={(result) => { // 按照 需求自定义
-            console.log('BBSinglePicker result=>', result)
-            if(result === selectValue) return;
+            console.log('BBDoublePicker result=>', result)
+            if(result === selectValues) return;
             this.setState({
-              selectValue: result
+              selectValues: result
             })
             onChangeText && onChangeText(result)
             this._superCallBack(-1)

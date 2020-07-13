@@ -13,7 +13,7 @@ import { DeviceWidth } from 'react-native-rxdialog'
 // 本地 采用
 import {
   RXDate,
-  RXSinglePicker,
+  RXAddressPicker,
  } from '../../../package/index'
 
 
@@ -24,11 +24,12 @@ import {
 
 const width = DeviceWidth;
 
-export default class BBSinglePicker extends RXDialogPicker {
+export default class BBAddressPicker extends RXDialogPicker {
   constructor(props){
     super(props);
     this.state = ({
-      selectValue: '00:00',
+      addressList: [],
+      selectValues: '',
     })
   }
 
@@ -41,20 +42,20 @@ export default class BBSinglePicker extends RXDialogPicker {
 
   createContentView() {
     const { onChangeText } = this.props;
-    const {selectValue} = this.state;
+    const {addressList, selectValues} = this.state;
     return(
       <View style={{width, backgroundColor: '#fff'}}>
-        <RXSinglePicker
+        <RXAddressPicker
           style={{flex:1}}
           title={'时间选择'}
-          list={ RXDate.RXADay24Hours(true) }
-          selectValue={selectValue}
+          addressList={addressList}
+          selectValues={selectValues}
           dismiss={()=> this._superCallBack(-1)}
           onConfirm={(result) => { // 按照 需求自定义
-            console.log('BBSinglePicker result=>', result)
-            if(result === selectValue) return;
+            console.log('BBAddressPicker result=>', result)
+            if(result === selectValues) return;
             this.setState({
-              selectValue: result
+              selectValues: result
             })
             onChangeText && onChangeText(result)
             this._superCallBack(-1)
