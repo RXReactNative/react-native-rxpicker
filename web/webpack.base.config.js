@@ -6,7 +6,7 @@ const appDirectory = path.resolve(__dirname, "../");
 const babelLoaderConfiguration = {
   test: /\.js$/,
   include: [
-    path.resolve(appDirectory, "app"),
+    path.resolve(appDirectory, "app/"),
     path.resolve(appDirectory, 'App.js'),
     path.resolve(appDirectory, "node_modules/react-native-popup-dialog"),
     path.resolve(appDirectory, "node_modules/react-native-rxdialog"),
