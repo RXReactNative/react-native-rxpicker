@@ -74,7 +74,7 @@ export default class RXSinglePicker extends Component {
 
   onChange = (scrollIndex=0, targetItemIndex=0) => {
     const { onChange } = this.props;
-    console.log('onChange=> scrollIndex='+scrollIndex+',,,targetItemIndex='+targetItemIndex);
+    // console.log('onChange=> scrollIndex='+scrollIndex+',,,targetItemIndex='+targetItemIndex);
     this.resultIndex = targetItemIndex;
     onChange && onChange(scrollIndex, targetItemIndex);
   }
@@ -86,7 +86,7 @@ export default class RXSinglePicker extends Component {
       console.warn('YLSinglePicker 数组越界');
       return;
     }
-    console.log('this.resultIndex='+this.resultIndex);
+    // console.log('this.resultIndex='+this.resultIndex);
     let item = list[this.resultIndex] || '';
     onConfirm && onConfirm(item);
   }

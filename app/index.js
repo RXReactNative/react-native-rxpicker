@@ -36,7 +36,6 @@ export default class RXPickerDemo extends Component {
 
   click(action = 0) {
     if(action === 0) {
-      console.log('singlePickerVisible')
       this.setState({ singlePickerVisible: true})
     }
   }

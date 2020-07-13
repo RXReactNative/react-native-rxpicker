@@ -29,7 +29,7 @@ sh script/androidDebug.sh
 
 # 或者 window -> VSCode
 powershell script/androidDebug.sh
-# 或者 window -> git baseshell
+# 或者 window -> Git Base Here
 sh script/androidDebug.sh
 
 # 2 vscode run ios
@@ -56,3 +56,7 @@ sh script/androidDebug.sh
 # Cocoapods install
 # https://www.jianshu.com/p/9e4e36ba8574
 ```
+
+### android 
+> error `Please select Android SDK`
+- https://www.cnblogs.com/android-deli/p/9684805.html
