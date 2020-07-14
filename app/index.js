@@ -35,6 +35,9 @@ import BBAddressPicker from './components/rxdialog/content/BBAddressPicker'
 // react-native-community/modal
 import RNCModal from './rncModal'
 
+// react-native-community/modal 官方 demo
+// import ModalTester from './components/react-native-community/modal/demo/ModalTester'
+
 import { IFIphoneX } from 'react-native-rxdialog'
 
 export default class RXPickerDemo extends Component {
@@ -71,6 +74,9 @@ export default class RXPickerDemo extends Component {
     }
     else if (action === 5) {
       this.setState({showPDdialog: 2})
+    }
+    else if (action === 5) {
+      // this.setState({showPDdialog: 3})
     }
   }
 
@@ -109,6 +115,7 @@ export default class RXPickerDemo extends Component {
           {this._getView('show popup-dialog ...', 4)}
           {this._getTipText('react-native-community/modal extensions')}
           {this._getView('show modal ...', 5)}
+          {/* {this._getView('show modal 官方demo', 6)} */}
         </ScrollView>
         <BBSinglePicker 
           visible={this.state.singlePickerVisible}
@@ -164,6 +171,12 @@ export default class RXPickerDemo extends Component {
     )
   }
 
+  renderGfModal() {
+    return (
+      <ModalTester isModalVisible={true} />
+    )
+  }
+
   render() {
     const {showPDdialog} = this.state;
     let element = null;
@@ -175,6 +188,9 @@ export default class RXPickerDemo extends Component {
     }
     else if (showPDdialog === 2) {
       element = this.renderModal();
+    }
+    else if (showPDdialog === 3) {
+      // element = this.renderGfModal();
     }
     
     return(

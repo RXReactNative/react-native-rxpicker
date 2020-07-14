@@ -15,10 +15,10 @@ import Modal from "react-native-modal";
 
 export default class BaseModal extends Component {
   static defaultProps = {
-    style: {},
+    style: {borderWidth: 0},
 
     isVisible: false,
-    backdropOpacity: 0.2,
+    backdropOpacity: 0,
 
     superCallBack : () => {},
     overClickEnable: true,
@@ -27,8 +27,8 @@ export default class BaseModal extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-    }
+    this.state = ({
+    })
   }
 
   _superCallBack = () => {
@@ -53,6 +53,11 @@ export default class BaseModal extends Component {
   }
 
   render() {
+    const {isVisible, animationIn} = this.props;
+    console.log('baseModal->isVisible=>', isVisible)
+    console.log('baseModal->animationIn=>', animationIn)
+    if (!isVisible) return null;
+
     const {style, ...other} = this.props;
     return(
       <View>
@@ -61,9 +66,9 @@ export default class BaseModal extends Component {
           style={[{margin: 0, alignItems:'flex-start', justifyContent: 'flex-start'},
                   style]} 
           onBackdropPress={this._superCallBack}
-          onRequestClose={this._superCallBack}>
-            {this.createContentView()}
-        </Modal>
+          onRequestClose={this._superCallBack}
+          children={this.createContentView()}
+          />
       </View>
     )
   }

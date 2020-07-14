@@ -49,12 +49,15 @@ export default class BBSinglePicker extends RXDialogPicker {
           dismiss={()=> this._superCallBack(-1)}
           onConfirm={(result) => { // 按照 需求自定义
             console.log('BBSinglePicker result=>', result)
-            if(result === selectValue) return;
+            if(result === selectValue) {
+              console.log('当前选择，是上一次的结果，不可点击确定')
+              return;
+            } 
             this.setState({
               selectValue: result
             })
-            onChangeText && onChangeText(result)
-            this._superCallBack(-1)
+            onChangeText && onChangeText(result);
+            this._superCallBack(-1);
           }}
         />
       </View>

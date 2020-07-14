@@ -5,7 +5,6 @@ import { View } from 'react-native'
 
 import RXDialogPicker from '../core/RXDialogPicker'
 
-import { DeviceWidth } from 'react-native-rxdialog'
 
 // 本地 采用
 import {
@@ -19,6 +18,12 @@ import {
 //   // ...
 // } from 'react-native-rxpicker'
 
+import {
+  RXSlideAnimation,
+
+  DeviceWidth,
+} from 'react-native-rxdialog'
+
 const width = DeviceWidth;
 
 export default class BBAddressPicker extends RXDialogPicker {
@@ -28,6 +33,8 @@ export default class BBAddressPicker extends RXDialogPicker {
       addressList: [],
       selectValues: '',
     })
+
+    this.pickerAnimal = new RXSlideAnimation({slideFrom : 'left'});
   }
 
   static defaultProps = {

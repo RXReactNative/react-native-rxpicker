@@ -108,9 +108,9 @@ export default class RNCModalDemo extends Component {
         </ScrollView>
 
         <CCSinglePicker
-          visible={this.state.singlePickerVisible}
-          superCallBack={(index)=>{
-            console.log('BBSinglePicker superCallBack=>', index)
+          isVisible={this.state.singlePickerVisible}
+          superCallBack={()=>{
+            console.log('BBSinglePicker superCallBack=>')
             this.setState({ singlePickerVisible: false })
           }}
         />

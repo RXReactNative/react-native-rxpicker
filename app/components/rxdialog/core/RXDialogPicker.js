@@ -71,6 +71,7 @@ export default class RXDialogPicker extends Component {
     }
 
     _superCallBack(action=0) {
+      console.log('_superCallBack->action=>', action)
       if (action != 0) {
         this._doAnimal(0, ()=>{
           if (this.props.superCallBack) {

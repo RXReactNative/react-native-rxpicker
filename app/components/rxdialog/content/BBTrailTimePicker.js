@@ -5,7 +5,6 @@ import { View } from 'react-native'
 
 import RXDialogPicker from '../core/RXDialogPicker'
 
-import { DeviceWidth } from 'react-native-rxdialog'
 
 // 本地 采用
 import {
@@ -19,6 +18,11 @@ import {
 //   // ...
 // } from 'react-native-rxpicker'
 
+import {
+  RXSlideAnimation,
+
+  DeviceWidth,
+} from 'react-native-rxdialog'
 const width = DeviceWidth;
 
 export default class BBTrailTimePicker extends RXDialogPicker {
@@ -30,6 +34,8 @@ export default class BBTrailTimePicker extends RXDialogPicker {
       selectValues: now, // 当前日期
       limitDay: 30, // 最少天数 (最早从这月出，到今天，，，不会到上个月)
     })
+
+    this.pickerAnimal = new RXSlideAnimation({slideFrom : 'top'});
   }
 
   static defaultProps = {
