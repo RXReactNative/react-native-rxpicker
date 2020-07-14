@@ -1,5 +1,5 @@
 /**
- * @this rxinput
+ * @this rxpicker
  *
  * author : srxboys
  * @flow  : 用于 静态语法检查
@@ -28,12 +28,22 @@ import BBDoublePicker from './components/rxdialog/content/BBDoublePicker'
 import BBTrailTimePicker from './components/rxdialog/content/BBTrailTimePicker'
 import BBAddressPicker from './components/rxdialog/content/BBAddressPicker'
 
+
+// popup-dialog - demo
+// import PopupDialogDemo from './popupDialog'
+
+// react-native-community/modal
+import RNCModal from './rncModal'
+
 import { IFIphoneX } from 'react-native-rxdialog'
 
 export default class RXPickerDemo extends Component {
   constructor(props){
     super(props);
     this.state = ({
+
+      showPDdialog: 0,
+
       singlePickerVisible: false,
       doublePickerVisible: false,
       trailTimPickerVisible: false,
@@ -53,6 +63,14 @@ export default class RXPickerDemo extends Component {
     }
     else if (action === 3) {
       this.setState({ addressPickerVisible: true})
+    }
+
+
+    else if (action === 4) {
+      this.setState({showPDdialog: 1})
+    }
+    else if (action === 5) {
+      this.setState({showPDdialog: 2})
     }
   }
 
@@ -76,9 +94,10 @@ export default class RXPickerDemo extends Component {
     )
   }
 
-  render() {
-    return(
-      <View style={{flex: 1, margin: 0, backgroundColor: '#f0f4f7'}}>
+
+  renderRXDialog() {
+    return (
+      <View style={{flex: 1}}>
         <Text style={styles.tip}>{"react-native-rxpicker"}</Text>
         <ScrollView style={{flex: 1}}>
           {this._getTipText('RXDialog extensions', 5)}
@@ -87,6 +106,9 @@ export default class RXPickerDemo extends Component {
           {this._getView('trailTimPicker', 2)}
           {this._getView('addressPicker', 3)}
           {this._getTipText('popup-dialog extensions')}
+          {this._getView('show popup-dialog ...', 4)}
+          {this._getTipText('react-native-community/modal extensions')}
+          {this._getView('show modal ...', 5)}
         </ScrollView>
         <BBSinglePicker 
           visible={this.state.singlePickerVisible}
@@ -116,6 +138,48 @@ export default class RXPickerDemo extends Component {
             this.setState({ addressPickerVisible: false })
           }}
         />
+      </View>
+    )
+  }
+
+  renderPopupDialog() {
+    // 由于 PopupDialogDemo 在 react-native-web 有bug。就不展示了
+    return this.renderRXDialog();
+    // return (
+      // <PopupDialogDemo
+      //   dismiss={()=>{
+      //     this.setState({showPDdialog: 0})
+      //   }}
+      // />
+    // )
+  }
+
+  renderModal() {
+    return (
+      <RNCModal
+        dismiss={()=>{
+          this.setState({showPDdialog: 0})
+        }}
+      />
+    )
+  }
+
+  render() {
+    const {showPDdialog} = this.state;
+    let element = null;
+    if (!showPDdialog) {
+      element = this.renderRXDialog();
+    }
+    else if (showPDdialog === 1) {
+      element = this.renderPopupDialog();
+    }
+    else if (showPDdialog === 2) {
+      element = this.renderModal();
+    }
+    
+    return(
+      <View style={{flex: 1, margin: 0, backgroundColor: '#f0f4f7'}}>
+        {element}
       </View>
     )
   }

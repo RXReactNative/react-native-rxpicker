@@ -8,8 +8,17 @@ const babelLoaderConfiguration = {
   include: [
     path.resolve(appDirectory, "app/"),
     path.resolve(appDirectory, 'App.js'),
-    path.resolve(appDirectory, "node_modules/react-native-popup-dialog"),
+
+    // 不需要依赖其他库
     path.resolve(appDirectory, "node_modules/react-native-rxdialog"),
+
+    // 下面 是一起的，缺一不可
+    path.resolve(appDirectory, "node_modules/react-native-popup-dialog"),
+    path.resolve(appDirectory, "node_modules/react-native-root-siblings"),
+    path.resolve(appDirectory, "node_modules/static-container"),
+
+    path.resolve(appDirectory, "node_modules/react-native-modal"),
+    path.resolve(appDirectory, "node_modules/react-native-animatable"),
   ],
   use: {
     loader: "babel-loader",

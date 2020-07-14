@@ -5,22 +5,12 @@
  */
 'use strict'
 import React, {Component} from 'react';
-import { } from 'react-native';
+import {View} from 'react-native';
 import PropTypes from 'prop-types';
 
 import RXPicker from '../core/RXPicker';
 
 export default class RXAddressPicker extends Component {
-  static propTypes = {
-    ...RXPicker.propTypes,
-    addressList: PropTypes.array,
-    selectValues: PropTypes.string,
-  }
-
-  static defaultProps = {
-    ...RXPicker.defaultProps,
-    addressList: [],
-  }
 
   constructor(props) {
     super(props);
@@ -327,4 +317,15 @@ export const AddressUtil = {
     }
     return { id, name };
   }
+}
+
+RXAddressPicker.propTypes = {
+  ...RXPicker.propTypes,
+  addressList: PropTypes.array,
+  selectValues: PropTypes.string,
+}
+
+RXAddressPicker.defaultProps = {
+  ...RXPicker.defaultProps,
+  addressList: [],
 }

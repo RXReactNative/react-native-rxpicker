@@ -41,7 +41,7 @@ export default class RXDialogPicker extends Component {
     static defaultProps = {
       visible: false,
       style: {},
-      superCallBack : {},
+      superCallBack : (e) => {},
       overClickEnable: true,
     }
 

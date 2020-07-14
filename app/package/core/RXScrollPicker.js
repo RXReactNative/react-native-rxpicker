@@ -315,7 +315,7 @@ export default class RXScrollPicker extends Component {
         },
         style: [
           styles.container,
-          this.props.style,
+          this.props.contentStyle,
           {
             height: containerHeight || DEFAULT_CONTAINER_HEIGHT,
           },
