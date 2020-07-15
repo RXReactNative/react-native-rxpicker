@@ -5,7 +5,7 @@
  */
 'use strict'
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {} from 'react-native';
 import PropTypes from 'prop-types';
 
 import RXPicker from '../core/RXPicker';

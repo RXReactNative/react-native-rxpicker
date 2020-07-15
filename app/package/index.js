@@ -1,16 +1,15 @@
-import RXPicker from './core/RXPicker';
-import RXPickerStyle from './core/RXPickerStyle';
-import RXScrollPicker from './core/RXScrollPicker';
+import RXPicker from './dist/core/RXPicker';
+import RXPickerStyle from './dist/core/RXPickerStyle';
+import RXScrollPicker from './dist/core/RXScrollPicker';
 
-import RXAddressPicker from './components/RXAddressPicker';
-import RXDoublePicker from './components/RXDoublePicker';
-import RXSinglePicker from './components/RXSinglePicker';
-import RXTrailTimePicker from './components/RXTrailTimePicker';
+import RXAddressPicker from './dist/components/RXAddressPicker';
+import RXDoublePicker from './dist/components/RXDoublePicker';
+import RXSinglePicker from './dist/components/RXSinglePicker';
+import RXTrailTimePicker from './dist/components/RXTrailTimePicker';
 
-
-import * as RXDate from './utils/RXDate';
-import RXDateUtil from './utils/RXDateUtil';
-import RXUtils from './utils/RXUtils';
+import * as RXDate from './dist/utils/RXDate';
+import RXDateUtil from './dist/utils/RXDateUtil';
+import RXUtils from './dist/utils/RXUtils';
 
 
 export default RXSinglePicker;

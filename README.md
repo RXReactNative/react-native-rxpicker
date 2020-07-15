@@ -60,3 +60,7 @@ sh script/androidDebug.sh
 ### android 
 > error `Please select Android SDK`
 - https://www.cnblogs.com/android-deli/p/9684805.html
+
+
+### babel
+https://zzz.buzz/zh/2017/12/30/babel-source-maps/
