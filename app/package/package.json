@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-rxpicker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React Native rxpicker for IOS & Android & windows.",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "license": "MIT",
   "repository": {
       "type": "git",
-      "url": "git@github.com:RXReactNative/reacty-native-rxpicker.git",
+      "url": "git@github.com:RXReactNative/react-native-rxpicker.git",
       "directory": "app/package"
   },
   "devDependencies": {
