@@ -1,6 +1,6 @@
 
 'use strict'
-import React, { Component } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 
 import RXDialogPicker from '../core/RXDialogPicker'
@@ -8,7 +8,6 @@ import RXDialogPicker from '../core/RXDialogPicker'
 
 // 本地 采用
 import {
-  RXDate,
   RXAddressPicker,
  } from '../../../package/index'
 
@@ -47,7 +46,7 @@ export default class BBAddressPicker extends RXDialogPicker {
   createContentView() {
     const { onChangeText } = this.props;
     const {addressList, selectValues} = this.state;
-    return(
+    return (
       <View style={{width, backgroundColor: '#fff'}}>
         <RXAddressPicker
           style={{flex:1}}
@@ -57,7 +56,7 @@ export default class BBAddressPicker extends RXDialogPicker {
           dismiss={()=> this._superCallBack(-1)}
           onConfirm={(result) => { // 按照 需求自定义
             console.log('BBAddressPicker result=>', result)
-            if(result === selectValues) return;
+            if (result === selectValues) {return;}
             this.setState({
               selectValues: result
             })

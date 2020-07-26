@@ -63,16 +63,16 @@ export default class RXDialogPicker extends Component {
                 this._superCallBack(-1);
               }
             }>
-          <View style={{flex: 1, width: width- 40, height: 80, alignItems: 'center', justifyContent: 'center', marginBottom: 50, backgroundColor: 'white'}}>
+          <View style={{flex: 1, width: width - 40, height: 80, alignItems: 'center', justifyContent: 'center', marginBottom: 50, backgroundColor: 'white'}}>
             <Text style={{padding:10, fontSize: 16, lineHeight: 20, color: 'red'}}>Override this method with subclasses to implement Component(请用子类覆盖该方法实现UI)</Text>
           </View>
         </TouchableWithoutFeedback>
       )
     }
 
-    _superCallBack(action=0) {
+    _superCallBack(action = 0) {
       console.log('_superCallBack->action=>', action)
-      if (action != 0) {
+      if (action !== 0) {
         this._doAnimal(0, ()=>{
           if (this.props.superCallBack) {
             this.props.superCallBack(action);

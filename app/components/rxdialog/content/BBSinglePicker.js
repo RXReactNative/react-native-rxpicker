@@ -1,6 +1,6 @@
 
 'use strict'
-import React, { Component } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 
 import RXDialogPicker from '../core/RXDialogPicker'
@@ -39,7 +39,7 @@ export default class BBSinglePicker extends RXDialogPicker {
   createContentView() {
     const { onChangeText } = this.props;
     const {selectValue} = this.state;
-    return(
+    return (
       <View style={{width, backgroundColor: '#fff'}}>
         <RXSinglePicker
           style={{flex:1}}
@@ -49,7 +49,7 @@ export default class BBSinglePicker extends RXDialogPicker {
           dismiss={()=> this._superCallBack(-1)}
           onConfirm={(result) => { // 按照 需求自定义
             console.log('BBSinglePicker result=>', result)
-            if(result === selectValue) {
+            if (result === selectValue) {
               console.log('当前选择，是上一次的结果，不可点击确定')
               return;
             } 

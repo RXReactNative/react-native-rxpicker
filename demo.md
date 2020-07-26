@@ -64,3 +64,17 @@ sh script/androidDebug.sh
 
 ### babel
 https://zzz.buzz/zh/2017/12/30/babel-source-maps/
+
+
+### nginx 本地配置
+```conf
+  # linux/mac/window 同一个配置
+  server {
+    listen 8054;
+    location / {
+      root   D:/react-native-rxpicker/docs;
+      index  index.html index.htm;
+      try_files $uri $uri/ /index.html;
+    }
+  }
+```

@@ -57,7 +57,7 @@ export default class RXPicker extends Component {
       style = [styles.btnRightBar].concat(rightStyle);
     }
     return (
-      <TouchableOpacity activeOpacity={0.5}  onPress={()=>{ index?this.onConfirm():this.dismiss() }}>
+      <TouchableOpacity activeOpacity={0.5} onPress={()=>{ index ? this.onConfirm() : this.dismiss() }}>
         <Text style={style}>{title}</Text>
       </TouchableOpacity>
     )
@@ -65,12 +65,12 @@ export default class RXPicker extends Component {
 
   render() {
     const { style, leftTitle, rightTitle,title, titleStyle, LineSeparatorStyle, ...other } = this.props;
-    return(
+    return (
       <View style={[styles.container, style]}>
         <View style={styles.tabBarView}>
-          {this.renderButton(leftTitle?leftTitle:'取消', 0)}
-          <Text style={[styles.titleText, titleStyle]}>{title?title:'请选择'}</Text>
-          {this.renderButton(rightTitle?rightTitle:'确定', 1)}
+          {this.renderButton(leftTitle ? leftTitle : '取消', 0)}
+          <Text style={[styles.titleText, titleStyle]}>{title ? title : '请选择'}</Text>
+          {this.renderButton(rightTitle ? rightTitle : '确定', 1)}
         </View>
         <View style={[{height: 1, backgroundColor: '#f0ebeb'}, LineSeparatorStyle]}/>
         <RXScrollPicker {...other} />

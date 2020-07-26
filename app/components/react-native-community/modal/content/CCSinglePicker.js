@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   View,
-  Text,
 } from 'react-native'
 
 import BaseModal from '../core/BaseModal';
@@ -71,7 +70,7 @@ export default class CCSinglePicker extends BaseModal {
           dismiss={()=> this._superCallBack()}
           onConfirm={(result) => { // 按照 需求自定义
             console.log('BBSinglePicker result=>', result)
-            if(result === selectValue) return;
+            if (result === selectValue) {return;}
             this.setState({
               selectValue: result
             })

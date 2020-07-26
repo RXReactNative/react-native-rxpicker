@@ -48,9 +48,11 @@ export default class RXSinglePicker extends Component {
     let valueKey = props.valueKey;
 
     const list = props.list || [];
-    if (!selectValue) return null;
+    if (!selectValue) {
+      return null;
+    }
     if (typeof selectValue === 'string' || typeof selectValue === 'number') {
-      for (var i=0; i < list.length; i++) {
+      for (var i = 0; i < list.length; i++) {
         let item = list[i] || '';
         if (item === selectValue) {
           this.resultIndex = i || 0;
@@ -60,7 +62,7 @@ export default class RXSinglePicker extends Component {
       return null;
     }
     else if (typeof selectValue === 'object' && valueKey) {
-      for (var i=0; i < list.length; i++) {
+      for (var i = 0; i < list.length; i++) {
         let item = list[i] || {};
         let value = item[valueKey];
         if (value === selectValue) {
@@ -72,7 +74,7 @@ export default class RXSinglePicker extends Component {
     }
   }
 
-  onChange = (scrollIndex=0, targetItemIndex=0) => {
+  onChange = (scrollIndex = 0, targetItemIndex = 0) => {
     const { onChange } = this.props;
     // console.log('onChange=> scrollIndex='+scrollIndex+',,,targetItemIndex='+targetItemIndex);
     this.resultIndex = targetItemIndex;

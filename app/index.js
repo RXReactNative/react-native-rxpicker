@@ -80,8 +80,8 @@ export default class RXPickerDemo extends Component {
     }
   }
 
-  _getTipText(title='', top = 30) {
-    return(
+  _getTipText(title = '', top = 30) {
+    return (
       <Text style={{height: 20, backgroundColor: 'orange', color: 'black',
                     marginTop: top, textAlign: 'center',
                     fontSize: 14, lineHeight: 20}}>
@@ -90,7 +90,7 @@ export default class RXPickerDemo extends Component {
     )
   }
 
-  _getView(title='', action=0) {
+  _getView(title = '', action = 0) {
     return (
       <TouchableOpacity onPress={()=>{this.click(action)}}>
         <View style={styles.container}>
@@ -173,7 +173,8 @@ export default class RXPickerDemo extends Component {
 
   renderGfModal() {
     return (
-      <ModalTester isModalVisible={true} />
+      <View />
+      // <ModalTester isModalVisible={true} />
     )
   }
 
@@ -193,7 +194,7 @@ export default class RXPickerDemo extends Component {
       // element = this.renderGfModal();
     }
     
-    return(
+    return (
       <View style={{flex: 1, margin: 0, backgroundColor: '#f0f4f7'}}>
         {element}
       </View>

@@ -12,7 +12,7 @@ export function RXThisYear() {
 export function RXYearArray() {
   const year = this.RXThisYear();
   var yearArray = [];
-  for(let i=year-20; i<year+20; i++) {
+  for (let i = year - 20; i < year + 20; i++) {
     yearArray.push(i);
   }
   return yearArray;
@@ -25,11 +25,11 @@ export function RXMonthArray() {
 }
 
 // 时间
-export function RXADay24Hours(isConvert2Digit=false) {
+export function RXADay24Hours(isConvert2Digit = false) {
   var minuteArray = [];
-    for(let i=0; i<=24; i++) {
-      const index = isConvert2Digit?RXConvert2Digit(i):i;
-      const time = index+':00';
+    for (let i = 0; i <= 24; i++) {
+      const index = isConvert2Digit ? RXConvert2Digit(i) : i;
+      const time = index + ':00';
       minuteArray.push(time);
     }
     return minuteArray;

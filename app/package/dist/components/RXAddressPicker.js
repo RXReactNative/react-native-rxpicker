@@ -129,8 +129,9 @@ var _initialiseProps = function () {
 
         areaCode: this.areaCode,
         areaName: this.areaName
-        // alert('provinceName='+this.provinceName+',cityName='+ this.cityName+',areaName='+this.areaName);
-      };onConfirm && onConfirm(params);
+      };
+
+      onConfirm && onConfirm(params);
     }, 1000);
   };
 };
@@ -207,7 +208,7 @@ export const AddressUtil = {
         let cityName = item.cityName || '';
         if (!id) {
           let cityId = item.cityId || 0;
-          if (cityIdValue && cityId == cityIdValue) {
+          if (cityIdValue && cityId === cityIdValue) {
             //相对相等，不是绝对
             id = cityId;
             name = cityName;
@@ -253,7 +254,7 @@ export const AddressUtil = {
       let cityName = item.cityName || '';
       if (pCityId && parentId === pCityId) {
         if (!id) {
-          if (cityIdValue && cityId == cityIdValue) {
+          if (cityIdValue && cityId === cityIdValue) {
             //相对相等，不是绝对
             name = cityName;
             id = cityId;

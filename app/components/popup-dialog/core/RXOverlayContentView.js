@@ -3,7 +3,6 @@
  * @flow
  */
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
 import Dialog, { DialogProps, ScaleAnimation, SlideAnimation } from 'react-native-popup-dialog';
 
 export interface RXOverlayContentView extends DialogProps {
@@ -18,7 +17,7 @@ export default class OverlayView extends Component<OverlayViewProps> {
       content: null,
       visible: false,
       config: {
-        type: 'center'
+        type: 'center',
       }
     };
   }
@@ -27,9 +26,9 @@ export default class OverlayView extends Component<OverlayViewProps> {
       content,
       config: {
         ...this.state.config,
-        ...config
+        ...config,
       },
-      visible: true
+      visible: true,
     });
   };
 
@@ -45,7 +44,7 @@ export default class OverlayView extends Component<OverlayViewProps> {
         <Dialog
           visible={visible}
           width={1}
-          containerStyle={{ zIndex: 0, justifyContent: 'flex-end' }}
+          containerStyle={{zIndex: 0, justifyContent: 'flex-end'}}
           rounded={false}
           dialogAnimation={
             new SlideAnimation({
@@ -62,8 +61,8 @@ export default class OverlayView extends Component<OverlayViewProps> {
       return (
         <Dialog
           visible={visible}
-          containerStyle={{ zIndex: 0 }}
-          dialogStyle={{ backgroundColor: 'transparent' }}
+          containerStyle={{zIndex: 0}}
+          dialogStyle={{backgroundColor: 'transparent'}}
           width={0.8}
           rounded={true}
           dialogAnimation={
@@ -80,5 +79,3 @@ export default class OverlayView extends Component<OverlayViewProps> {
     }
   }
 }
-
-const styles = StyleSheet.create({});

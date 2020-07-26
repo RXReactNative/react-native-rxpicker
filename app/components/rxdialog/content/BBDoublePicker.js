@@ -1,6 +1,6 @@
 
 'use strict'
-import React, { Component } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 
 import RXDialogPicker from '../core/RXDialogPicker'
@@ -44,8 +44,9 @@ export default class BBDoublePicker extends RXDialogPicker {
 
   createContentView() {
     const { onChangeText } = this.props;
-    const {selectValues, valueKey} = this.state;
-    return(
+    // const {selectValues, valueKey} = this.state;
+    const {selectValues} = this.state;
+    return (
       <View style={{width, backgroundColor: '#fff'}}>
         <RXDoublePicker
           style={{flex:1}}
@@ -56,7 +57,7 @@ export default class BBDoublePicker extends RXDialogPicker {
           dismiss={()=> this._superCallBack(-1)}
           onConfirm={(result) => { // 按照 需求自定义
             console.log('BBDoublePicker result=>', result)
-            if(result === selectValues) return;
+            if (result === selectValues) return;
             this.setState({
               selectValues: result
             })

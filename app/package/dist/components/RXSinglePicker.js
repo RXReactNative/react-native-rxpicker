@@ -47,7 +47,9 @@ export default class RXSinglePicker extends Component {
     let valueKey = props.valueKey;
 
     const list = props.list || [];
-    if (!selectValue) return null;
+    if (!selectValue) {
+      return null;
+    }
     if (typeof selectValue === 'string' || typeof selectValue === 'number') {
       for (var i = 0; i < list.length; i++) {
         let item = list[i] || '';

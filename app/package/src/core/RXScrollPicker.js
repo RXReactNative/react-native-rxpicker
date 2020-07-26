@@ -5,13 +5,13 @@
  *
  * @flow
  */
-"use strict";
-import React, { Component } from "react";
-import { StyleSheet, View, Text, PixelRatio, ScrollView } from "react-native";
+"use strict"
+import React, {Component} from "react"
+import { StyleSheet, View, Text, PixelRatio, ScrollView } from "react-native"
 
-import PropTypes from "prop-types";
-import { RXConfigArray } from "../utils/RXUtils";
-import RXPickerStyle from "./RXPickerStyle";
+import PropTypes from 'prop-types'
+import { RXConfigArray } from '../utils/RXUtils'
+import RXPickerStyle from './RXPickerStyle'
 
 const px = 1 / PixelRatio.get();
 const DEFAULT_CONTAINER_HEIGHT = 1;
@@ -209,7 +209,7 @@ export default class RXScrollPicker extends Component {
               measure();
             }, 20);
           } else {
-            return reject("获取元素高度失败！");
+            return reject('获取元素高度失败！');
           }
         }
       };
@@ -218,7 +218,7 @@ export default class RXScrollPicker extends Component {
   }
 
   resizeContainerHeight(targetItemHeight) {
-    const { offsetCount } = this.props;
+    const {offsetCount} = this.props;
     const ret = targetItemHeight + 2 * (targetItemHeight * offsetCount);
     return ret;
   }
@@ -229,7 +229,7 @@ export default class RXScrollPicker extends Component {
       View,
       {
         style: [styles.indicator],
-        pointerEvents: "none",
+        pointerEvents: 'none',
       },
       React.createElement(View, {
         style: [
@@ -276,8 +276,8 @@ export default class RXScrollPicker extends Component {
   }
 
   scrollProper(scrollIndex, scrollHeight, animated) {
-    const { targetItemHeight, list } = this.state;
-    const { offsetCount } = this.props;
+    const {targetItemHeight, list} = this.state;
+    const {offsetCount} = this.props;
     const scrollListLength = list[scrollIndex].length;
     let newScrollHeight;
     const min = 0;
@@ -386,7 +386,7 @@ export default class RXScrollPicker extends Component {
                         style: [styles.targetItemContent],
                         numberOfLines: 1,
                       },
-                      typeof item === "object" ? item.label : item
+                      typeof item === 'object' ? item.label : item
                     )
               );
             })
@@ -399,20 +399,20 @@ export default class RXScrollPicker extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    backgroundColor: "#fff",
+    flexDirection: 'row',
+    backgroundColor: '#fff',
   },
   proportionWrapper: {
-    flexDirection: "column",
+    flexDirection: 'column',
   },
   scroller: {
     flex: 1,
   },
   scrollerContentContainer: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   targetItem: {
-    flexDirection: "row",
+    flexDirection: 'row',
     alignItems: "center",
   },
   targetItemContent: {

@@ -24,12 +24,12 @@ export default class RXAddressPicker extends Component {
     this.provinceName = result.provinceName || '';
 
     let cityArray = result.cityArray || [];
-    this.cityIndex = result.cityIndex|| 0;
+    this.cityIndex = result.cityIndex || 0;
     this.cityCode = result.cityCode || 0;
     this.cityName = result.cityName || '';
 
     let areaArray = result.areaArray || [];
-    this.areaIndex = result.areaIndex|| 0;
+    this.areaIndex = result.areaIndex || 0;
     this.areaCode = result.areaCode || 0;
     this.areaName = result.areaName || '';
 
@@ -105,8 +105,8 @@ export default class RXAddressPicker extends Component {
         areaCode: this.areaCode,
         areaName: this.areaName,
       }
-      // alert('provinceName='+this.provinceName+',cityName='+ this.cityName+',areaName='+this.areaName);
-      onConfirm && onConfirm(params);
+
+      onConfirm && onConfirm(params)
     }, 1000);
   }
 
@@ -115,7 +115,7 @@ export default class RXAddressPicker extends Component {
     const { provinceArray, cityArray, areaArray } = this.state;
     return <RXPicker 
             {...other}
-            style={ {paddingBottom: 20} }
+            style={{paddingBottom: 20}}
             title={'选择地区'}
 
             // 数据源
@@ -136,17 +136,9 @@ export default class RXAddressPicker extends Component {
 
 
 
-
-
-
-
-
-
-
-
 export const AddressUtil = {
 
-  getNameWithCodes(array=[], codes='') {
+  getNameWithCodes(array = [], codes = '') {
 
     if (!array || !Array.isArray(array) || !array.length) {
       return null;
@@ -154,7 +146,7 @@ export const AddressUtil = {
 
     let codeArray = codes.split(',') || [];
     if (!Array.isArray(codeArray)) {
-      codeArray = [0,0,0];
+      codeArray = [0, 0, 0];
     }
     var codeValue_0 = '';
     var codeValue_1 = '';
@@ -193,7 +185,7 @@ export const AddressUtil = {
     }
   },
 
-  getPCA(array = [], cityIdValue='') {
+  getPCA(array = [], cityIdValue = '') {
     //{cityId: 3124, cityName: "崇左市", cityLevel: 2, parentId: 3015, cityCode: 144}
     let provinceArray = [];
     let allProvinceArray = [];
@@ -209,14 +201,14 @@ export const AddressUtil = {
     var id = 0;
     var name = '';
     let firstItem = null;
-    for (let i = 0; i<array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
       let item = array[i] || {};
       let cityLevel = item.cityLevel || 0;
       if (cityLevel === 1) {
         let cityName = item.cityName || '';
         if (!id) {
           let cityId = item.cityId || 0;
-          if (cityIdValue && cityId == cityIdValue) { //相对相等，不是绝对
+          if (cityIdValue && cityId === cityIdValue) { //相对相等，不是绝对
             id = cityId;
             name = cityName;
           }
@@ -247,7 +239,7 @@ export const AddressUtil = {
     return { allProvinceArray, allCityArray, allAreaArray, provinceArray, id, index, name };
   },
 
-  getArrayWithParent(array=[], pCityId=1, cityIdValue='') {
+  getArrayWithParent(array = [], pCityId = 1, cityIdValue = '') {
     if (!Array.isArray(array)) {
       console.warn('getArrayName-> `array` not array');
       return {array: [], index: 0};
@@ -257,14 +249,14 @@ export const AddressUtil = {
     var id = 0;
     var name = '';
     let firstItem = null;
-    for (var i = 0; i<array.length; i++) {
+    for (var i = 0; i < array.length; i++) {
       let item = array[i] || {};
       let parentId = item.parentId || 0;
       let cityId = item.cityId || 0;
       let cityName = item.cityName || '';
       if (pCityId && parentId === pCityId) {
         if (!id) {
-          if (cityIdValue && cityId == cityIdValue) { //相对相等，不是绝对
+          if (cityIdValue && cityId === cityIdValue) { //相对相等，不是绝对
             name = cityName;
             id = cityId;
           }
@@ -287,7 +279,7 @@ export const AddressUtil = {
     return {array: newArray, index, id, name};
   },
 
-  getArrayWithCityName(array=[], index=0, allArray=[]) {
+  getArrayWithCityName(array = [], index = 0, allArray = []) {
     var id = 0;
     let name = '';
     if (!Array.isArray(array)) {
@@ -300,7 +292,7 @@ export const AddressUtil = {
     }
     name = array[index] || '';
     let firstItem = null;
-    for (let i=0; i<allArray.length; i++) {
+    for (let i = 0; i < allArray.length; i++) {
       let item = allArray[i] || {};
       let itemName = item.cityName || '';
       if (!firstItem){

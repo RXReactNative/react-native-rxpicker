@@ -12,9 +12,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 import React, { Component } from "react";
 import { StyleSheet, View, Text, PixelRatio, ScrollView } from "react-native";
 
-import PropTypes from "prop-types";
-import { RXConfigArray } from "../utils/RXUtils";
-import RXPickerStyle from "./RXPickerStyle";
+import PropTypes from 'prop-types';
+import { RXConfigArray } from '../utils/RXUtils';
+import RXPickerStyle from './RXPickerStyle';
 
 const px = 1 / PixelRatio.get();
 const DEFAULT_CONTAINER_HEIGHT = 1;
@@ -158,7 +158,7 @@ export default class RXScrollPicker extends Component {
               measure();
             }, 20);
           } else {
-            return reject("获取元素高度失败！");
+            return reject('获取元素高度失败！');
           }
         }
       };
@@ -176,7 +176,7 @@ export default class RXScrollPicker extends Component {
     const { offsetCount } = this.props;
     return React.createElement(View, {
       style: [styles.indicator],
-      pointerEvents: "none"
+      pointerEvents: 'none'
     }, React.createElement(View, {
       style: [styles.indicator, styles.indicatorMask, {
         bottom: targetItemHeight + offsetCount * targetItemHeight
@@ -280,7 +280,7 @@ export default class RXScrollPicker extends Component {
         }, this.props.renderItem ? this.props.renderItem(item, index) : React.createElement(Text, {
           style: [styles.targetItemContent],
           numberOfLines: 1
-        }, typeof item === "object" ? item.label : item));
+        }, typeof item === 'object' ? item.label : item));
       })));
     }));
   }
@@ -306,20 +306,20 @@ RXScrollPicker.defaultProps = _extends({}, View.defaultProps, {
 });
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    backgroundColor: "#fff"
+    flexDirection: 'row',
+    backgroundColor: '#fff'
   },
   proportionWrapper: {
-    flexDirection: "column"
+    flexDirection: 'column'
   },
   scroller: {
     flex: 1
   },
   scrollerContentContainer: {
-    alignItems: "center"
+    alignItems: 'center'
   },
   targetItem: {
-    flexDirection: "row",
+    flexDirection: 'row',
     alignItems: "center"
   },
   targetItemContent: {

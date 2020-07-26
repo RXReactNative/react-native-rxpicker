@@ -28,9 +28,7 @@ import PDOverlay from './components/popup-dialog/core/PDOverlay'
 // popup-dialog views
 import AASinglePicker from './components/popup-dialog/content/AASinglePicker'
 
-import { IFIphoneX, DeviceWidth, DeviceHeight } from 'react-native-rxdialog'
-const width = DeviceWidth;
-const height = DeviceHeight;
+import { IFIphoneX } from 'react-native-rxdialog'
 
 export default class PopupDialogDemo extends Component {
   static propTypes = {
@@ -75,19 +73,19 @@ export default class PopupDialogDemo extends Component {
     }
   }
 
-  _getTipText(title='', top = 30) {
-    return(
-      <Text style={{height: 20, backgroundColor: 'orange', color: 'black',
+  _getTipText(title = '', top = 30) {
+    return (
+      <Text style={{ height: 20, backgroundColor: 'orange', color: 'black',
                     marginTop: top, textAlign: 'center',
-                    fontSize: 14, lineHeight: 20}}>
+                    fontSize: 14, lineHeight: 20 }}>
         {title}
       </Text>
     )
   }
 
-  _getView(title='', action=0) {
+  _getView(title = '', action = 0) {
     return (
-      <TouchableOpacity onPress={()=>{this.click(action)}}>
+      <TouchableOpacity onPress={() => {this.click(action)}}>
         <View style={styles.container}>
           <Text style={styles.text}> {title} </Text>
         </View>
@@ -96,8 +94,8 @@ export default class PopupDialogDemo extends Component {
   }
 
   render() {
-    return(
-      <View style={{flex:1, backgroundColor: '#f0f4f7'}}>
+    return (
+      <View style={{ flex:1, backgroundColor: '#f0f4f7' }}>
         <Text style={styles.tip}>{"react-native-rxpicker"}</Text>
         <ScrollView style={{flex: 1}}>
           {this._getTipText('RXDialog extensions', 5)}

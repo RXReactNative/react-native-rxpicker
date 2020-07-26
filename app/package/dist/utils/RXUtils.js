@@ -36,7 +36,7 @@ export function RXConvert2Digit(num) {
     num = parseInt(num);
     if (isNaN(num)) num = 0;
   }
-  if (num == 0) return "00";
+  if (num === 0) return "00";
   if (num > 9) return num;
   return "0" + num;
 }

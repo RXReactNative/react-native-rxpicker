@@ -29,8 +29,8 @@ export default class RXTrailTimePicker extends Component {
     const { 
       yearArray , monthArray, dayArray, hourArray,
       yearSelectIndex, monthSelectIndex, daySelectIndex, hourSelectIndex,
-      lastHour,
-      preDay, lastYear, lastMonth, lastDay 
+      // lastHour,
+      // preDay, lastYear, lastMonth, lastDay 
     } = this.initialize(props);
 
     this.state = {
@@ -94,7 +94,7 @@ export default class RXTrailTimePicker extends Component {
     };
   }
 
-  getSelectMonth(year=0, selectMonth=0) {
+  getSelectMonth(year = 0, selectMonth = 0) {
     let nowDate = new Date();
     let nowDateMap = RXDateUtil.formatDateMap(nowDate);
     if (!year) {
@@ -114,7 +114,7 @@ export default class RXTrailTimePicker extends Component {
     }
   }
 
-  getSelectDays(year=0, month=0, selectDay=0) {
+  getSelectDays(year = 0, month = 0, selectDay = 0) {
     let { limitDay } = this.props;
     limitDay = limitDay || 1;
     month = this.restoreNum(month);
@@ -150,13 +150,13 @@ export default class RXTrailTimePicker extends Component {
     var selectIndex = 0;
 
     var array = [];
-    for (let i = 0; i<MaxCount; i++) {
+    for (let i = 0; i < MaxCount; i++) {
       let day = index + i;
       if (day === selectDay) selectIndex = i;
       let dateString = day + ' 日 ' + this.getWeek(year, month, day);
       if (dateString === selectDay) selectIndex = i;
       array.push(dateString);
-    };
+    }
     return { array, selectIndex };
   }
 
@@ -204,20 +204,24 @@ export default class RXTrailTimePicker extends Component {
     return weekString;
   }
 
-  getSelectHour = (year=0, month=0, day=0, selectHour=0) => {
+  getSelectHour = (year = 0, month = 0, day = 0, selectHour = 0) => {
     month = this.restoreNum(month);
     day = this.restoreNum(day);
     if (typeof selectHour === 'string') {
       let tempHour = selectHour.split(':') || [selectHour];
       tempHour = parseInt(tempHour);
-      if (isNaN(tempHour)) tempHour = 0;
+      if (isNaN(tempHour)) {
+        tempHour = 0;
+      }
       selectHour = tempHour;
     }
     
     let nowDate = new Date();
     let nowDateMap = RXDateUtil.formatDateMap(nowDate);
     let maxHour = 24;
-    if (!year) year=nowDateMap.year;
+    if (!year) {
+      year = nowDateMap.year;
+    }
     if (
       year === nowDateMap.year && 
       month === nowDateMap.month && 
@@ -227,7 +231,7 @@ export default class RXTrailTimePicker extends Component {
     }
     var array = [];
     var selectIndex = selectHour > maxHour ? maxHour : 0;
-    for (let i=0; i<= maxHour; i++) {
+    for (let i = 0; i <= maxHour; i++) {
       if (i === selectHour) selectIndex = i;
       let hourString = RXConvert2Digit(i) + ':00';
       array.push(hourString);
@@ -246,8 +250,8 @@ export default class RXTrailTimePicker extends Component {
     return numString;
   }
 
-  onChange = (scrollIndex=0, targetItemIndex=0) => {
-    const { onChange } = this.props;
+  onChange = (scrollIndex = 0, targetItemIndex = 0) => {
+    // const { onChange } = this.props;
     const {
       yearArray, monthArray, dayArray, hourArray,
       yearSelectIndex, monthSelectIndex, daySelectIndex, hourSelectIndex,
@@ -375,8 +379,8 @@ export default class RXTrailTimePicker extends Component {
     let proportion = yearShow ? [0.5, 0.5, 2, 0,5] : [0.5, 2, 0,5];
     return <RXPicker 
             {...other}
-            style={ {paddingBottom: 20} }
-            title={ title }
+            style={{paddingBottom: 20}}
+            title={title}
             // 数据源
             list={list}
 

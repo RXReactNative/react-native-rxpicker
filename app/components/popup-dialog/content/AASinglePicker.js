@@ -34,11 +34,11 @@ export default class AASinglePicker extends React.Component {
   render() {
     const { onChangeText } = this.props;
     const {selectValue} = this.state;
-    return(
+    return (
       // 下面 width， alignSelf 是比不可少的，因为 popup-dialog 采用绝对布局方式
       <View style={{width, backgroundColor: '#fff', alignSelf: 'center'}}>
         <RXSinglePicker
-          style={{width, backgroundColor: 'orange',}}
+          style={{width, backgroundColor: 'orange'}}
           LineSeparatorStyle={{height: 2, backgroundColor: 'blue'}}
           contentStyle={{backgroundColor: 'yellow'}}
           title={'2 - 时间选择'}
@@ -47,7 +47,7 @@ export default class AASinglePicker extends React.Component {
           dismiss={()=> PDOverlay.dismiss()}
           onConfirm={(result) => { // 按照 需求自定义
             console.log('AASinglePicker result=>', result)
-            if(result === selectValue) return;
+            if (result === selectValue) {return;}
             this.setState({
               selectValue: result
             })

@@ -9,9 +9,12 @@
 
 'use strict'
 import React, { Component } from 'react'
-import {View} from 'react-native'
+import {View, Text, TouchableWithoutFeedback} from 'react-native'
 
 import Modal from "react-native-modal";
+import {DeviceWidth} from 'react-native-rxdialog'
+const width = DeviceWidth;
+
 
 export default class BaseModal extends Component {
   static defaultProps = {
@@ -45,7 +48,7 @@ export default class BaseModal extends Component {
               this._superCallBack(-1);
             }
           }>
-        <View style={{flex: 1, width: width- 40, height: 80, alignItems: 'center', justifyContent: 'center', marginBottom: 50, backgroundColor: 'white'}}>
+        <View style={{flex: 1, width: width - 40, height: 80, alignItems: 'center', justifyContent: 'center', marginBottom: 50, backgroundColor: 'white'}}>
           <Text style={{padding:10, fontSize: 16, lineHeight: 20, color: 'red'}}>Override this method with subclasses to implement Component(请用子类覆盖该方法实现UI)</Text>
         </View>
       </TouchableWithoutFeedback>
@@ -59,7 +62,7 @@ export default class BaseModal extends Component {
     if (!isVisible) return null;
 
     const {style, ...other} = this.props;
-    return(
+    return (
       <View>
         <Modal
           {...other}
