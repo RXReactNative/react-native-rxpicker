@@ -34,12 +34,12 @@ function create_directory()
   if [ $1 ];then
 
     file_dir=$1
-  
+
     file_path=${file_dir%/*}
     echo ' dir path nil && create dir =>' $file_path >> $result_path
     mkdir -p $file_path
     cd $file_path
-  
+
 
     file_name=${file_dir##*/}
     if [ ! -f $file_name ];then
@@ -96,7 +96,7 @@ ios_page=./ios/bundle
 ios_assets_path=$ios_page
 
 # android的 `js工程` 存放在 `android项目中`的哪个目录
-android_path=./android/app/src/main/assets/index.android.bundle 
+android_path=./android/app/src/main/assets/index.android.bundle
 # android的 `图片资源` 存放在 `android项目中`的哪个目录
 android_assets_path=$(dirname $(dirname "$android_path"))/res/
 
@@ -172,7 +172,7 @@ function android_assets_file() {
     # echo "$file is file"
     file_name=${file##*/}
     # echo "file_name=>$file_name"
-    
+
     if [[ -f "$file_name" || -d "$file_name" ]]; then
       # echo ''
       # echo 'error => *****'
@@ -211,7 +211,7 @@ function android_assets_dir()
 
   for file in $file_dir/*
   do
-  if [[ -d "$file" ]]; then 
+  if [[ -d "$file" ]]; then
     # echo "$file is directory => android_assets_dir()"
     android_assets_dir $file
   elif [[ -f "$file" ]]; then
@@ -235,7 +235,7 @@ function delete_android_assets()
   do
   # echo '-------------------'
   # echo 'option file =>' $file
-  if [[ -d "$file" ]]; then 
+  if [[ -d "$file" ]]; then
     # echo "$file is directory => delete_android_assets()"
     android_assets_dir $file
   elif [[ -f "$file" ]]; then
@@ -248,7 +248,7 @@ function delete_android_assets()
 if [[ "$platform" == "ios"  && -d $delete_assets_navigation ]]; then
   node_modules_delete_file $delete_assets_navigation
 elif [ "$platform" == "android" ]; then
-  # android 
+  # android
   delete_android_assets
   # echo ''
 fi
@@ -272,13 +272,13 @@ echo "" >> $result_path
 :<<!
 
 # ios (为了方便看，下面有换行操作)
-react-native bundle --platform ios --dev yes --entry-file index.ios.js 
+react-native bundle --platform ios --dev yes --entry-file index.ios.js
 --bundle-output ./ios/bundle/main.jsbundle --assets-dest ./ios/bundle
 
 # android (为了方便看，下面有换行操作)
 react-native bundle --platform android --dev false
---entry-file index.js --bundle-output 
-android/app/src/main/assets/index.android.bundle 
+--entry-file index.js --bundle-output
+android/app/src/main/assets/index.android.bundle
 --assets-dest android/app/src/main/res/
 
 

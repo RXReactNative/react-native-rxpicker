@@ -3,11 +3,11 @@
  *
  * author : srxboys
  * @flow  : 用于 静态语法检查
- * 
+ *
 **/
 
 'use strict'
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import {
   StyleSheet,
   View,
@@ -23,7 +23,7 @@ import PropTypes from 'prop-types'
 
 import CCSinglePicker from './components/react-native-community/modal/content/CCSinglePicker'
 
-import {IFIphoneX} from 'react-native-rxdialog'
+import { IFIphoneX } from 'react-native-rxdialog'
 
 export default class RNCModalDemo extends Component {
   static propTypes = {
@@ -33,10 +33,10 @@ export default class RNCModalDemo extends Component {
 
   static defaultProps = {
     ...View.defaultProps,
-    dismiss: () => {},
+    dismiss: () => { },
   }
 
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = ({
       singlePickerVisible: false,
@@ -48,28 +48,30 @@ export default class RNCModalDemo extends Component {
 
   click(action = 0) {
     if (action === -1) {
-      const {dismiss} = this.props
+      const { dismiss } = this.props
       dismiss && dismiss()
     }
     else if (action === 0) {
-      this.setState({singlePickerVisible: true})
+      this.setState({ singlePickerVisible: true })
     }
     else if (action === 1) {
-      this.setState({doublePickerVisible: true})
+      this.setState({ doublePickerVisible: true })
     }
     else if (action === 2) {
-      this.setState({trailTimPickerVisible: true})
+      this.setState({ trailTimPickerVisible: true })
     }
     else if (action === 3) {
-      this.setState({addressPickerVisible: true})
+      this.setState({ addressPickerVisible: true })
     }
   }
 
   _getTipText(title = '', top = 30) {
     return (
-      <Text style={{ height: 20, backgroundColor: 'orange', color: 'black',
-                    marginTop: top, textAlign: 'center',
-                    fontSize: 14, lineHeight: 20 }}>
+      <Text style={{
+        height: 20, backgroundColor: 'orange', color: 'black',
+        marginTop: top, textAlign: 'center',
+        fontSize: 14, lineHeight: 20
+      }}>
         {title}
       </Text>
     )
@@ -77,7 +79,7 @@ export default class RNCModalDemo extends Component {
 
   _getView(title = '', action = 0) {
     return (
-      <TouchableOpacity onPress={() => {this.click(action)}}>
+      <TouchableOpacity onPress={() => { this.click(action) }}>
         <View style={styles.container}>
           <Text style={styles.text}> {title} </Text>
         </View>
@@ -87,7 +89,7 @@ export default class RNCModalDemo extends Component {
 
   render() {
     return (
-      <View style={{ flex:1, backgroundColor: '#f0f4f7' }}>
+      <View style={{ flex: 1, backgroundColor: '#f0f4f7' }}>
         <Text style={styles.tip}>{'react-native-rxpicker'}</Text>
         <ScrollView style={{ flex: 1 }}>
           {this._getTipText('RXDialog extensions', 5)}
@@ -106,7 +108,7 @@ export default class RNCModalDemo extends Component {
           isVisible={this.state.singlePickerVisible}
           superCallBack={() => {
             console.log('BBSinglePicker superCallBack=>')
-            this.setState({singlePickerVisible: false})
+            this.setState({ singlePickerVisible: false })
           }}
         />
       </View>

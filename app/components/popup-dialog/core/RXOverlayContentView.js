@@ -1,5 +1,5 @@
 /**
- * 
+ *
  * @flow
  */
 import React, { Component } from 'react';
@@ -44,7 +44,7 @@ export default class OverlayView extends Component<OverlayViewProps> {
         <Dialog
           visible={visible}
           width={1}
-          containerStyle={{zIndex: 0, justifyContent: 'flex-end'}}
+          containerStyle={{ zIndex: 0, justifyContent: 'flex-end' }}
           rounded={false}
           dialogAnimation={
             new SlideAnimation({
@@ -61,8 +61,8 @@ export default class OverlayView extends Component<OverlayViewProps> {
       return (
         <Dialog
           visible={visible}
-          containerStyle={{zIndex: 0}}
-          dialogStyle={{backgroundColor: 'transparent'}}
+          containerStyle={{ zIndex: 0 }}
+          dialogStyle={{ backgroundColor: 'transparent' }}
           width={0.8}
           rounded={true}
           dialogAnimation={

@@ -1,11 +1,11 @@
 /**
- * 
- * 
+ *
+ *
  * @flow
  */
 'use strict'
-import React, {Component} from 'react';
-import { 
+import React, { Component } from 'react';
+import {
   StyleSheet,
   View,
   Text,
@@ -30,8 +30,8 @@ export default class RXPicker extends Component {
   }
   static defaultProps = {
     ...RXScrollPicker.defaultProps,
-    dismiss: (e) => {},
-    onConfirm: (e) => {},
+    dismiss: (e) => { },
+    onConfirm: (e) => { },
   }
 
   constructor(props) {
@@ -39,12 +39,12 @@ export default class RXPicker extends Component {
   }
 
   dismiss = () => {
-    const { dismiss} = this.props;
+    const { dismiss } = this.props;
     dismiss && dismiss();
   }
 
   onConfirm = () => {
-    const { onConfirm} = this.props;
+    const { onConfirm } = this.props;
     onConfirm && onConfirm();
   }
 
@@ -57,14 +57,14 @@ export default class RXPicker extends Component {
       style = [styles.btnRightBar].concat(rightStyle);
     }
     return (
-      <TouchableOpacity activeOpacity={0.5} onPress={()=>{ index ? this.onConfirm() : this.dismiss() }}>
+      <TouchableOpacity activeOpacity={0.5} onPress={() => { index ? this.onConfirm() : this.dismiss() }}>
         <Text style={style}>{title}</Text>
       </TouchableOpacity>
     )
   }
 
   render() {
-    const { style, leftTitle, rightTitle,title, titleStyle, LineSeparatorStyle, ...other } = this.props;
+    const { style, leftTitle, rightTitle, title, titleStyle, LineSeparatorStyle, ...other } = this.props;
     return (
       <View style={[styles.container, style]}>
         <View style={styles.tabBarView}>
@@ -72,7 +72,7 @@ export default class RXPicker extends Component {
           <Text style={[styles.titleText, titleStyle]}>{title ? title : '请选择'}</Text>
           {this.renderButton(rightTitle ? rightTitle : '确定', 1)}
         </View>
-        <View style={[{height: 1, backgroundColor: '#f0ebeb'}, LineSeparatorStyle]}/>
+        <View style={[{ height: 1, backgroundColor: '#f0ebeb' }, LineSeparatorStyle]} />
         <RXScrollPicker {...other} />
       </View>
     )
