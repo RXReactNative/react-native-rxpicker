@@ -11,13 +11,14 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import PropTypes from 'prop-types';
+import PropTypes, { element } from 'prop-types';
 import RXPickerStyle from './RXPickerStyle'
 import RXScrollPicker from './RXScrollPicker';
 
 export default class RXPicker extends Component {
   static propTypes = {
     ...RXScrollPicker.propTypes,
+    headerView: PropTypes.any,
     title: PropTypes.string,
     titleStyle: PropTypes.object, // TextPropTypes.style 需要 react-native-web 支持，故使用object
     leftTitle: PropTypes.string,
@@ -30,6 +31,7 @@ export default class RXPicker extends Component {
   }
   static defaultProps = {
     ...RXScrollPicker.defaultProps,
+    headerView: null,
     dismiss: (e) => { },
     onConfirm: (e) => { },
   }
@@ -64,14 +66,22 @@ export default class RXPicker extends Component {
   }
 
   render() {
-    const { style, leftTitle, rightTitle, title, titleStyle, LineSeparatorStyle, ...other } = this.props;
+    const { style, headerView, leftTitle, rightTitle, title, titleStyle, LineSeparatorStyle, ...other } = this.props;
+
+    let tabBarView = headerView
+    if (!tabBarView || !(tabBarView && React.isValidElement(tabBarView))) {
+      tabBarView = (
+        <View style={styles.tabBarView}>
+          {this.renderButton(leftTitle ? leftTitle : RXPickerStyle.store.btnLeftBar.text, 0)}
+          <Text style={[styles.titleText, titleStyle]}>{title ? title : RXPickerStyle.store.titleText.text}</Text>
+          {this.renderButton(rightTitle ? rightTitle : RXPickerStyle.store.btnRightBar.text, 1)}
+        </View>
+      )
+    }
+
     return (
       <View style={[styles.container, style]}>
-        <View style={styles.tabBarView}>
-          {this.renderButton(leftTitle ? leftTitle : '取消', 0)}
-          <Text style={[styles.titleText, titleStyle]}>{title ? title : '请选择'}</Text>
-          {this.renderButton(rightTitle ? rightTitle : '确定', 1)}
-        </View>
+        {tabBarView}
         <View style={[{ height: 1, backgroundColor: '#f0ebeb' }, LineSeparatorStyle]} />
         <RXScrollPicker {...other} />
       </View>

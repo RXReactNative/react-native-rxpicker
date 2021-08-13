@@ -171,7 +171,7 @@ export default class RXPickerDemo extends Component {
   }
 
   renderPopupDialog() {
-    // 由于 PopupDialogDemo 在 react-native-web 有bug。就不展示了
+    // I haven't started writing yet
     return this.renderRXDialog();
     // return (
     // <PopupDialogDemo
@@ -183,6 +183,7 @@ export default class RXPickerDemo extends Component {
   }
 
   renderModal() {
+    // I haven't started writing yet
     return (
       <RNCModal
         dismiss={() => {
@@ -193,6 +194,7 @@ export default class RXPickerDemo extends Component {
   }
 
   renderGfModal() {
+    // I haven't started writing yet
     return (
       <View />
       // <ModalTester isModalVisible={true} />

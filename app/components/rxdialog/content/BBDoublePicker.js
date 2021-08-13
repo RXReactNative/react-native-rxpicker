@@ -1,7 +1,7 @@
 
 'use strict'
 import React from 'react'
-import { View } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 
 import RXDialogPicker from '../core/RXDialogPicker'
 
@@ -16,6 +16,10 @@ import {
 // import {
 //   // ...
 // } from 'react-native-rxpicker'
+
+import {
+  RXPickerStyle
+} from '../../../package/index'
 
 import {
   RXSlideAnimation,
@@ -46,10 +50,22 @@ export default class BBDoublePicker extends RXDialogPicker {
     const { onChangeText } = this.props;
     // const {selectValues, valueKey} = this.state;
     const { selectValues } = this.state;
+
+    // No click events were written
+    // Just to show the ability to support customization
+    const diyHeaderView = (
+      <View style={styles.tabBarView}>
+        <Text style={styles.tabBarViewLeft}>close</Text>
+        <Text style={styles.tabBarViewCenter}>请选择时间</Text>
+        <Text style={styles.tabBarViewRight}>go</Text>
+      </View>
+    )
+
     return (
       <View style={{ width, backgroundColor: '#fff' }}>
         <RXDoublePicker
           style={{ flex: 1 }}
+          headerView={diyHeaderView}
           title={'日期 + 时间选择'}
           list={[RXDate.RXWeekArray(), RXDate.RXADay24Hours(true)]}
           selectValues={selectValues}
@@ -70,3 +86,24 @@ export default class BBDoublePicker extends RXDialogPicker {
   }
 
 }
+
+const styles = StyleSheet.create({
+  tabBarView: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    height: RXPickerStyle.store.tabBarView.height,
+  },
+  tabBarViewLeft: {
+    color: 'green',
+    paddingHorizontal: RXPickerStyle.store.btnRightBar.paddingHorizontal,
+  },
+  tabBarViewCenter: {
+    flex: 1,
+    textAlign: 'center',
+    color: 'red',
+  },
+  tabBarViewRight: {
+    color: 'pink',
+    paddingHorizontal: RXPickerStyle.store.btnRightBar.paddingHorizontal,
+  },
+})

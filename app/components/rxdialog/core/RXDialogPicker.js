@@ -27,6 +27,10 @@ import {
   DeviceHeight,
 } from 'react-native-rxdialog'
 
+import {
+  RXPickerStyle
+} from '../../../package/index'
+
 const width = DeviceWidth;
 const height = DeviceHeight;
 
@@ -36,6 +40,13 @@ export default class RXDialogPicker extends Component {
 
     this.overlayAnimal = new RXFadeAnimation();
     this.pickerAnimal = new RXSlideAnimation({ slideFrom: 'bottom' });
+
+    // 仅配置一次，如果配置多次，，相同的key.value 以最后一个为准
+    // RXPickerStyle.initApi({ // 你可以打开
+    //   btnLeftBar: { text: '取消' },
+    //   btnRightBar: { text: '确定' },
+    //   titleText: { text: '请选择' }
+    // })
   }
 
   static defaultProps = {

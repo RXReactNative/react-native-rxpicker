@@ -95,7 +95,7 @@ export default class RXDoublePicker extends Component {
     let { list, onConfirm } = this.props;
     list = list || [];
     if (!this.resultIndexArray || this.resultIndexArray.length > list.length) {
-      console.warn('YLDoublePicker 数组越界');
+      console.warn('RXDoublePicker 数组越界');
       return;
     }
     let length = this.resultIndexArray.length;
@@ -104,7 +104,7 @@ export default class RXDoublePicker extends Component {
       let index = this.resultIndexArray[i] || 0;
       let array = list[i] || [];
       if (index > array.length) {
-        console.warn('YLDoublePicker 数组越界');
+        console.warn('RXDoublePicker 数组越界');
         resultArray.push('');
       }
       else {

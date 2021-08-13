@@ -14,17 +14,20 @@ const DEFAULT_CONFIG = {
   btnLeftBar: {
     fontSize: 16,
     color: '#767997',
-    paddingHorizontal: 15
+    paddingHorizontal: 15,
+    text: 'cancel'
   },
   btnRightBar: {
     fontSize: 16,
     color: '#383E5F',
-    paddingHorizontal: 15
+    paddingHorizontal: 15,
+    text: 'confirm'
   },
   titleText: {
     fontSize: 18,
     textAlign: 'center',
-    color: '#383E5F'
+    color: '#383E5F',
+    text: 'please select'
   }
 
   //
@@ -43,6 +46,10 @@ export default class RXPickerStyle {
       throw new Error('RXPickerStyle -> initApi() -> config=null');
     }
     Object.assign(this.store, config);
+  }
+
+  static reset() {
+    this._store = DEFAULT_CONFIG;
   }
 }
 //# sourceMappingURL=RXPickerStyle.js.map

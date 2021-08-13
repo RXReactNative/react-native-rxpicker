@@ -26,7 +26,7 @@ export default class RXSinglePicker extends Component {
       let { list, onConfirm } = this.props;
       list = list || [];
       if (this.resultIndex > list.length) {
-        console.warn('YLSinglePicker 数组越界');
+        console.warn('RXSinglePicker 数组越界');
         return;
       }
       // console.log('this.resultIndex='+this.resultIndex);

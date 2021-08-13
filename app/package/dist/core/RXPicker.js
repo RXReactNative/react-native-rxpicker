@@ -6,7 +6,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import PropTypes from 'prop-types';
+import PropTypes, { element } from 'prop-types';
 import RXPickerStyle from './RXPickerStyle';
 import RXScrollPicker from './RXScrollPicker';
 
@@ -49,22 +49,28 @@ export default class RXPicker extends Component {
 
   render() {
     const _props = this.props,
-          { style, leftTitle, rightTitle, title, titleStyle, LineSeparatorStyle } = _props,
-          other = _objectWithoutProperties(_props, ['style', 'leftTitle', 'rightTitle', 'title', 'titleStyle', 'LineSeparatorStyle']);
-    return React.createElement(
-      View,
-      { style: [styles.container, style] },
-      React.createElement(
+          { style, headerView, leftTitle, rightTitle, title, titleStyle, LineSeparatorStyle } = _props,
+          other = _objectWithoutProperties(_props, ['style', 'headerView', 'leftTitle', 'rightTitle', 'title', 'titleStyle', 'LineSeparatorStyle']);
+
+    let tabBarView = headerView;
+    if (!tabBarView || !(tabBarView && React.isValidElement(tabBarView))) {
+      tabBarView = React.createElement(
         View,
         { style: styles.tabBarView },
-        this.renderButton(leftTitle ? leftTitle : '取消', 0),
+        this.renderButton(leftTitle ? leftTitle : RXPickerStyle.store.btnLeftBar.text, 0),
         React.createElement(
           Text,
           { style: [styles.titleText, titleStyle] },
-          title ? title : '请选择'
+          title ? title : RXPickerStyle.store.titleText.text
         ),
-        this.renderButton(rightTitle ? rightTitle : '确定', 1)
-      ),
+        this.renderButton(rightTitle ? rightTitle : RXPickerStyle.store.btnRightBar.text, 1)
+      );
+    }
+
+    return React.createElement(
+      View,
+      { style: [styles.container, style] },
+      tabBarView,
       React.createElement(View, { style: [{ height: 1, backgroundColor: '#f0ebeb' }, LineSeparatorStyle] }),
       React.createElement(RXScrollPicker, other)
     );
@@ -72,6 +78,7 @@ export default class RXPicker extends Component {
 }
 
 RXPicker.propTypes = _extends({}, RXScrollPicker.propTypes, {
+  headerView: PropTypes.any,
   title: PropTypes.string,
   titleStyle: PropTypes.object, // TextPropTypes.style 需要 react-native-web 支持，故使用object
   leftTitle: PropTypes.string,
@@ -83,6 +90,7 @@ RXPicker.propTypes = _extends({}, RXScrollPicker.propTypes, {
   onConfirm: PropTypes.func
 });
 RXPicker.defaultProps = _extends({}, RXScrollPicker.defaultProps, {
+  headerView: null,
   dismiss: e => {},
   onConfirm: e => {}
 });
