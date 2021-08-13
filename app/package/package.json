@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-rxpicker",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React Native rxpicker for IOS & Android & windows.",
   "main": "index.js",
   "scripts": {
