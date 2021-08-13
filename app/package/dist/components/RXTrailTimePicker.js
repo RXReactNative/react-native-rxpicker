@@ -23,7 +23,7 @@ export default class RXTrailTimePicker extends Component {
       yearArray, monthArray, dayArray, hourArray,
       yearSelectIndex, monthSelectIndex, daySelectIndex, hourSelectIndex
       // lastHour,
-      // preDay, lastYear, lastMonth, lastDay 
+      // preDay, lastYear, lastMonth, lastDay
     } = this.initialize(props);
 
     this.state = {

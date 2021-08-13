@@ -3,8 +3,8 @@
  *
  * author : srxboys
  * @flow  : 用于 静态语法检查
- * 
- * 
+ *
+ *
 **/
 
 'use strict'
@@ -21,7 +21,7 @@ import PropTypes from "prop-types";
 
 // popup-dialog
 // 1 全局放入组件
-import {OverlayView} from './components/popup-dialog/core/PDOverlay'
+import { OverlayView } from './components/popup-dialog/core/PDOverlay'
 // 2 控制显示内容、关闭显示
 import PDOverlay from './components/popup-dialog/core/PDOverlay'
 
@@ -38,20 +38,20 @@ export default class PopupDialogDemo extends Component {
 
   static defaultProps = {
     ...View.defaultProps,
-    dismiss: () => {},
+    dismiss: () => { },
   }
 
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = ({
-     
+
     })
   }
 
   click(action = 0) {
     if (action === 0) {
-      const {dismiss} = this.props;
+      const { dismiss } = this.props;
       dismiss && dismiss();
     }
     else if (action === 1) {
@@ -59,25 +59,27 @@ export default class PopupDialogDemo extends Component {
         <AASinglePicker />,
         {
           type: 'bottom',
-          onTouchOutside: ()=>{
+          onTouchOutside: () => {
             PDOverlay.dismiss();
           }
         }
       )
     }
     else if (action === 2) {
-      
+
     }
     else if (action === 3) {
-      
+
     }
   }
 
   _getTipText(title = '', top = 30) {
     return (
-      <Text style={{ height: 20, backgroundColor: 'orange', color: 'black',
-                    marginTop: top, textAlign: 'center',
-                    fontSize: 14, lineHeight: 20 }}>
+      <Text style={{
+        height: 20, backgroundColor: 'orange', color: 'black',
+        marginTop: top, textAlign: 'center',
+        fontSize: 14, lineHeight: 20
+      }}>
         {title}
       </Text>
     )
@@ -85,7 +87,7 @@ export default class PopupDialogDemo extends Component {
 
   _getView(title = '', action = 0) {
     return (
-      <TouchableOpacity onPress={() => {this.click(action)}}>
+      <TouchableOpacity onPress={() => { this.click(action) }}>
         <View style={styles.container}>
           <Text style={styles.text}> {title} </Text>
         </View>
@@ -95,9 +97,9 @@ export default class PopupDialogDemo extends Component {
 
   render() {
     return (
-      <View style={{ flex:1, backgroundColor: '#f0f4f7' }}>
+      <View style={{ flex: 1, backgroundColor: '#f0f4f7' }}>
         <Text style={styles.tip}>{"react-native-rxpicker"}</Text>
-        <ScrollView style={{flex: 1}}>
+        <ScrollView style={{ flex: 1 }}>
           {this._getTipText('RXDialog extensions', 5)}
           {this._getView('show RXDialog ...', 0)}
           {this._getTipText('popup-dialog extensions')}
@@ -118,7 +120,7 @@ export default class PopupDialogDemo extends Component {
 const styles = StyleSheet.create({
   tip: {
     paddingVertical: 20,
-    fontSize: 24, 
+    fontSize: 24,
     color: 'blue',
     paddingTop: IFIphoneX(40, 10, 10),
     lineHeight: 30,
@@ -128,14 +130,14 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 20, 
-    marginLeft: 40, 
-    marginRight: 40, 
-    height: 40, 
+    marginTop: 20,
+    marginLeft: 40,
+    marginRight: 40,
+    height: 40,
     backgroundColor: 'white',
   },
   text: {
-    fontSize: 24, 
+    fontSize: 24,
     color: 'blue',
     lineHeight: 30,
   }

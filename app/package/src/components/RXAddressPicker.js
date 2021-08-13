@@ -1,11 +1,11 @@
 /**
- * 
- * 
+ *
+ *
  * @flow
  */
 'use strict'
-import React, {Component} from 'react';
-import {} from 'react-native';
+import React, { Component } from 'react';
+import { } from 'react-native';
 import PropTypes from 'prop-types';
 
 import RXPicker from '../core/RXPicker';
@@ -68,7 +68,7 @@ export default class RXAddressPicker extends Component {
       this.areaIndex = areaDict.index || 0;
       this.areaCode = areaDict.id || 0;
       this.areaName = areaDict.name || '';
-      this.setState({cityArray, areaArray});
+      this.setState({ cityArray, areaArray });
     }
     else if (scrollIndex === 1) {
       this.cityIndex = targetItemIndex;
@@ -82,7 +82,7 @@ export default class RXAddressPicker extends Component {
       this.areaIndex = areaDict.index || 0;
       this.areaCode = areaDict.id || 0;
       this.areaName = areaDict.name || '';
-      this.setState({areaArray});
+      this.setState({ areaArray });
     }
     else if (scrollIndex === 2) {
       this.areaIndex = targetItemIndex;
@@ -98,10 +98,10 @@ export default class RXAddressPicker extends Component {
       let params = {
         provinceCode: this.provinceCode,
         provinceName: this.provinceName,
-  
+
         cityCode: this.cityCode,
         cityName: this.cityName,
-  
+
         areaCode: this.areaCode,
         areaName: this.areaName,
       }
@@ -113,24 +113,24 @@ export default class RXAddressPicker extends Component {
   render() {
     const { ...other } = this.props;
     const { provinceArray, cityArray, areaArray } = this.state;
-    return <RXPicker 
-            {...other}
-            style={{paddingBottom: 20}}
-            title={'选择地区'}
+    return <RXPicker
+      {...other}
+      style={{ paddingBottom: 20 }}
+      title={'选择地区'}
 
-            // 数据源
-            list={[ provinceArray, cityArray, areaArray ]}
+      // 数据源
+      list={[provinceArray, cityArray, areaArray]}
 
-            // 选中的
-            value={[this.provinceIndex, this.cityIndex, this.areaIndex]}
+      // 选中的
+      value={[this.provinceIndex, this.cityIndex, this.areaIndex]}
 
-            // 分区比例，注意和list数据源长度保持一致 (如果一致的，可以不写)
-            // proportion={ [1, 1, 1] }
-            // 选中项距离顶部的偏移个数
-            offsetCount={ 2 }
-            onChange={this.onChange}
-            onConfirm={this.onConfirm}
-          />
+      // 分区比例，注意和list数据源长度保持一致 (如果一致的，可以不写)
+      // proportion={ [1, 1, 1] }
+      // 选中项距离顶部的偏移个数
+      offsetCount={2}
+      onChange={this.onChange}
+      onConfirm={this.onConfirm}
+    />
   }
 }
 
@@ -194,7 +194,7 @@ export const AddressUtil = {
     array = array || [];
     if (!Array.isArray(array)) {
       console.warn('getArrayName-> `array` not array');
-      return { allProvinceArray, allCityArray, allAreaArray, provinceArray, index: 0, id: 0, name: ''};
+      return { allProvinceArray, allCityArray, allAreaArray, provinceArray, index: 0, id: 0, name: '' };
     }
 
     var index = 0;
@@ -216,7 +216,7 @@ export const AddressUtil = {
             index++;
           }
         }
-        if (!firstItem){
+        if (!firstItem) {
           firstItem = item;
         }
         provinceArray.push(cityName);
@@ -242,7 +242,7 @@ export const AddressUtil = {
   getArrayWithParent(array = [], pCityId = 1, cityIdValue = '') {
     if (!Array.isArray(array)) {
       console.warn('getArrayName-> `array` not array');
-      return {array: [], index: 0};
+      return { array: [], index: 0 };
     }
     var newArray = [];
     var index = 0;
@@ -264,11 +264,11 @@ export const AddressUtil = {
             index++;
           }
         }
-        if (!firstItem){
+        if (!firstItem) {
           firstItem = item;
         }
         newArray.push(cityName);
-      }      
+      }
     }
 
     if (!id) {
@@ -276,7 +276,7 @@ export const AddressUtil = {
       name = firstItem.cityName || '';
       id = firstItem.cityId || 0;
     }
-    return {array: newArray, index, id, name};
+    return { array: newArray, index, id, name };
   },
 
   getArrayWithCityName(array = [], index = 0, allArray = []) {
@@ -295,7 +295,7 @@ export const AddressUtil = {
     for (let i = 0; i < allArray.length; i++) {
       let item = allArray[i] || {};
       let itemName = item.cityName || '';
-      if (!firstItem){
+      if (!firstItem) {
         firstItem = item;
       }
       if (itemName === name) {

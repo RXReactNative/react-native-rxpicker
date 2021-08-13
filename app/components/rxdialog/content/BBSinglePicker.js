@@ -11,7 +11,7 @@ import { DeviceWidth } from 'react-native-rxdialog'
 import {
   RXDate,
   RXSinglePicker,
- } from '../../../package/index'
+} from '../../../package/index'
 
 
 // node_modules 采用
@@ -22,7 +22,7 @@ import {
 const width = DeviceWidth;
 
 export default class BBSinglePicker extends RXDialogPicker {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = ({
       selectValue: '00:00',
@@ -30,29 +30,29 @@ export default class BBSinglePicker extends RXDialogPicker {
   }
 
   static defaultProps = {
-    superCallBack: () => {},
-    onChangeText: (e) => {},
+    superCallBack: () => { },
+    onChangeText: (e) => { },
     overClickEnable: false,// no no  不可以点击
   }
 
 
   createContentView() {
     const { onChangeText } = this.props;
-    const {selectValue} = this.state;
+    const { selectValue } = this.state;
     return (
-      <View style={{width, backgroundColor: '#fff'}}>
+      <View style={{ width, backgroundColor: '#fff' }}>
         <RXSinglePicker
-          style={{flex:1}}
+          style={{ flex: 1 }}
           title={'时间选择'}
-          list={ RXDate.RXADay24Hours(true) }
+          list={RXDate.RXADay24Hours(true)}
           selectValue={selectValue}
-          dismiss={()=> this._superCallBack(-1)}
+          dismiss={() => this._superCallBack(-1)}
           onConfirm={(result) => { // 按照 需求自定义
             console.log('BBSinglePicker result=>', result)
             if (result === selectValue) {
               console.log('当前选择，是上一次的结果，不可点击确定')
               return;
-            } 
+            }
             this.setState({
               selectValue: result
             })

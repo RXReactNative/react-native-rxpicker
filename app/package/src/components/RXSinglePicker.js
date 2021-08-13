@@ -1,10 +1,10 @@
 /**
- * 
- * 
+ *
+ *
  * @flow
  */
 'use strict'
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -96,22 +96,22 @@ export default class RXSinglePicker extends Component {
   render() {
     const { style, list, ...other } = this.props;
     const { value } = this.state;
-    return <RXPicker 
-            {...other}
-            style={ [{paddingBottom: 20}, style] }
+    return <RXPicker
+      {...other}
+      style={[{ paddingBottom: 20 }, style]}
 
-            // 数据源
-            list={ [ list ] }
+      // 数据源
+      list={[list]}
 
-            // 选中的
-            value={value}
-            
-            // 分区比例，注意和list数据源长度保持一致 (如果一致的，可以不写)
-            // proportion={ [1, 1, 1] }
-            // 选中项距离顶部的偏移个数
-            offsetCount={ 2 }
-            onChange={this.onChange}
-            onConfirm={this.onConfirm}
-          />
+      // 选中的
+      value={value}
+
+      // 分区比例，注意和list数据源长度保持一致 (如果一致的，可以不写)
+      // proportion={ [1, 1, 1] }
+      // 选中项距离顶部的偏移个数
+      offsetCount={2}
+      onChange={this.onChange}
+      onConfirm={this.onConfirm}
+    />
   }
 }

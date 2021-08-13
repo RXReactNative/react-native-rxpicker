@@ -23,7 +23,7 @@ const YLDateUtil = {
   },
   /**
    * 日期格式化成字符串
-   * 
+   *
    * @param {*} time   时间戳
    * @param {*} format 格式样式
    */

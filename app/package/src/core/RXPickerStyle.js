@@ -1,7 +1,7 @@
 
 const DEFAULT_CONFIG = {
   // RXScrollPicker
-  mtdBorderColorDark:  '#e5e5e5',
+  mtdBorderColorDark: '#e5e5e5',
   mtdVSpacingL: 10,
 
   // RXPicker
@@ -38,7 +38,7 @@ export default class RXPickerStyle {
     return this._store;
   }
 
-  static initApi (config) {
+  static initApi(config) {
     if (!config) {
       throw new Error('RXPickerStyle -> initApi() -> config=null');
     }
