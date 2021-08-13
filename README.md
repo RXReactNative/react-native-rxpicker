@@ -19,7 +19,7 @@
 
 ## Usage
 
-- [demo](https://github.com/RXReactNative/react-native-rxpicker/tree/master/app/components/rxdialog/core/RXDialogPicker.js)
+- [demo](https://github.com/RXReactNative/react-native-rxpicker/tree/master/app/components/rxdialog)
 
 
 > 参考：
