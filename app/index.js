@@ -28,7 +28,6 @@ import BBDoublePicker from './components/rxdialog/content/BBDoublePicker'
 import BBTrailTimePicker from './components/rxdialog/content/BBTrailTimePicker'
 import BBAddressPicker from './components/rxdialog/content/BBAddressPicker'
 
-
 // popup-dialog - demo
 // import PopupDialogDemo from './popupDialog'
 
@@ -51,6 +50,9 @@ export default class RXPickerDemo extends Component {
       doublePickerVisible: false,
       trailTimPickerVisible: false,
       addressPickerVisible: false,
+
+      addressCodes: '',
+      addressNames: '',
     })
   }
 
@@ -102,6 +104,14 @@ export default class RXPickerDemo extends Component {
     )
   }
 
+  _getDesValue(value) {
+    return (
+      <View style={styles.desView}>
+        <Text style={styles.desText}>{value}</Text>
+      </View>
+    )
+  }
+
 
   renderRXDialog() {
     return (
@@ -113,6 +123,7 @@ export default class RXPickerDemo extends Component {
           {this._getView('DoublePicker', 1)}
           {this._getView('trailTimPicker', 2)}
           {this._getView('addressPicker', 3)}
+          {this._getDesValue('选择:  ' + (this.state.addressNames || '- - -'))}
           {this._getTipText('popup-dialog extensions')}
           {this._getView('show popup-dialog ...', 4)}
           {this._getTipText('react-native-community/modal extensions')}
@@ -142,6 +153,14 @@ export default class RXPickerDemo extends Component {
         />
         <BBAddressPicker
           visible={this.state.addressPickerVisible}
+          selectValues={this.state.addressCodes}
+          onChangeText={(codes, names) => {
+            console.log('BBAddressPicker BBAddressPicker =>', codes, names)
+            this.setState({
+              addressCodes: codes,
+              addressNames: names,
+            })
+          }}
           superCallBack={(index) => {
             console.log('BBAddressPicker superCallBack=>', index)
             this.setState({ addressPickerVisible: false })
@@ -227,5 +246,16 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: 'blue',
     lineHeight: 30,
+  },
+  desView: {
+    marginTop: 20,
+    marginLeft: 40,
+    marginRight: 40,
+    backgroundColor: 'gray',
+  },
+  desText: {
+    fontSize: 10,
+    color: 'black',
+    lineHeight: 15,
   }
 })

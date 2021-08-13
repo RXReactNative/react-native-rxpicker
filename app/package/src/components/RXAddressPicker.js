@@ -16,6 +16,7 @@ export default class RXAddressPicker extends Component {
     super(props);
     this.addressList = props.addressList || [];
     let selectValues = props.selectValues || '';
+    console.log('add selectValues=', selectValues)
     let result = AddressUtil.getNameWithCodes(this.addressList, selectValues) || {};
 
     let provinceArray = result.provinceArray || [];
@@ -155,6 +156,10 @@ export const AddressUtil = {
     if (codeArray.length > 1) codeValue_1 = codeArray[1] || 0;
     if (codeArray.length > 2) codeValue_2 = codeArray[2] || 0;
 
+    codeValue_0 ? codeValue_0 = parseInt(codeValue_0) : codeValue_0 = 0;
+    codeValue_1 ? codeValue_1 = parseInt(codeValue_1) : codeValue_1 = 0;
+    codeValue_2 ? codeValue_2 = parseInt(codeValue_2) : codeValue_2 = 0;
+
     let allDict = AddressUtil.getPCA(array, codeValue_0);
     let provinceArray = allDict.provinceArray || [];
     let provinceIndex = allDict.index || 0;
@@ -208,7 +213,7 @@ export const AddressUtil = {
         let cityName = item.cityName || '';
         if (!id) {
           let cityId = item.cityId || 0;
-          if (cityIdValue && cityId === cityIdValue) { //相对相等，不是绝对
+          if (cityIdValue && cityId === cityIdValue) {
             id = cityId;
             name = cityName;
           }
@@ -232,8 +237,9 @@ export const AddressUtil = {
 
     if (!id) {
       index = 0;
-      name = firstItem.cityName || '';
-      id = firstItem.cityId || 0;
+      const f = firstItem || {}
+      name = f.cityName || '';
+      id = f.cityId || 0;
     }
 
     return { allProvinceArray, allCityArray, allAreaArray, provinceArray, id, index, name };
@@ -256,7 +262,7 @@ export const AddressUtil = {
       let cityName = item.cityName || '';
       if (pCityId && parentId === pCityId) {
         if (!id) {
-          if (cityIdValue && cityId === cityIdValue) { //相对相等，不是绝对
+          if (cityIdValue && cityId === cityIdValue) {
             name = cityName;
             id = cityId;
           }
@@ -273,8 +279,9 @@ export const AddressUtil = {
 
     if (!id) {
       index = 0;
-      name = firstItem.cityName || '';
-      id = firstItem.cityId || 0;
+      const f = firstItem || {}
+      name = f.cityName || '';
+      id = f.cityId || 0;
     }
     return { array: newArray, index, id, name };
   },
@@ -304,8 +311,9 @@ export const AddressUtil = {
       }
     }
     if (!id) {
-      name = firstItem.cityName || '';
-      id = firstItem.cityId || 0;
+      const f = firstItem || {}
+      name = f.cityName || '';
+      id = f.cityId || 0;
     }
     return { id, name };
   }
