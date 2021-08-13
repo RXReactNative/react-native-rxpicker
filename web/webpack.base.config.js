@@ -80,7 +80,7 @@ module.exports = {
     path.resolve(appDirectory, "index.web.js")
   ],
   output: {
-    chunkFilename:"common." + new Date().getTime() + ".js",
+    chunkFilename: "common." + new Date().getTime() + ".js",
     filename: "bundle." + new Date().getTime() + ".js",
     path: path.resolve(appDirectory, "docs"),
     // path: '/usr/local/Cellar/nginx/1.17.0/html/dialog-example',
@@ -96,18 +96,18 @@ module.exports = {
   ],
   optimization: {
     splitChunks: {
-        cacheGroups: {
-          commons: {
-            name: "commons",
-            chunks: "initial",
-            minChunks: 2
-          },
-          vendors: {
-            test: /[\\/]node_modules[\\/]/,
-            name: "vendors",
-            chunks: "all"
-          }
+      cacheGroups: {
+        commons: {
+          name: "commons",
+          chunks: "initial",
+          minChunks: 2
+        },
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all"
         }
+      }
     }
   },
   module: {
@@ -128,6 +128,6 @@ module.exports = {
       // 'react-native-linear-gradient': 'react-native-web-linear-gradient',
     },
     modules: ["node_modules"],
-    extensions: [".web.js", ".js",'.html']
+    extensions: [".web.js", ".js", '.html']
   }
 };

@@ -11,7 +11,7 @@ const width = DeviceWidth;
 import {
   RXDate,
   RXSinglePicker,
- } from '../../../../package/index'
+} from '../../../../package/index'
 
 
 // node_modules 采用
@@ -45,7 +45,7 @@ export default class CCSinglePicker extends BaseModal {
     // "lightSpeedIn" | "lightSpeedOut" |
     // "slideInDown" | "slideInUp" | "slideInLeft" | "slideInRight" |
     // "slideOutDown" | "slideOutUp" | "slideOutLeft" | "slideOutRight" |
-    
+
     //"zoomIn" | "zoomInDown" | "zoomInUp" | "zoomInLeft" | "zoomInRight" |
     // "zoomOut" | "zoomOutDown" | "zoomOutUp" | "zoomOutLeft" | "zoomOutRight"
   }
@@ -59,18 +59,18 @@ export default class CCSinglePicker extends BaseModal {
 
   createContentView() {
     const { onChangeText } = this.props;
-    const {selectValue} = this.state;
+    const { selectValue } = this.state;
     return (
-      <View style={{width}}>
+      <View style={{ width }}>
         <RXSinglePicker
-          style={{flex:1}}
+          style={{ flex: 1 }}
           title={'时间选择'}
-          list={ RXDate.RXADay24Hours(true) }
+          list={RXDate.RXADay24Hours(true)}
           selectValue={selectValue}
-          dismiss={()=> this._superCallBack()}
+          dismiss={() => this._superCallBack()}
           onConfirm={(result) => { // 按照 需求自定义
             console.log('BBSinglePicker result=>', result)
-            if (result === selectValue) {return;}
+            if (result === selectValue) { return; }
             this.setState({
               selectValue: result
             })

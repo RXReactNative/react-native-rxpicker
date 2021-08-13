@@ -26,7 +26,7 @@ export function RXIsLeapYear(year) {
 
 /**
   * 格式化正整数，保留到十位数
-  * 
+  *
   *   9 -> 09
   *   1 -> 01
   **/

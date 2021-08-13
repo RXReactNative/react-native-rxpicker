@@ -1,5 +1,5 @@
 
-import {RXConvert2Digit} from './RXUtils';
+import { RXConvert2Digit } from './RXUtils';
 
 // 今年
 export function RXThisYear() {
@@ -27,12 +27,12 @@ export function RXMonthArray() {
 // 时间
 export function RXADay24Hours(isConvert2Digit = false) {
   var minuteArray = [];
-    for (let i = 0; i <= 24; i++) {
-      const index = isConvert2Digit ? RXConvert2Digit(i) : i;
-      const time = index + ':00';
-      minuteArray.push(time);
-    }
-    return minuteArray;
+  for (let i = 0; i <= 24; i++) {
+    const index = isConvert2Digit ? RXConvert2Digit(i) : i;
+    const time = index + ':00';
+    minuteArray.push(time);
+  }
+  return minuteArray;
 }
 
 // 日期

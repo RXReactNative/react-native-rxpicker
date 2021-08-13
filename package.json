@@ -1,9 +1,10 @@
 {
-  "name": "react-native-rxpicker",
+  "name": "react-native-rxpicker-demo",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "lint": "eslint app",
+    "dev": "npm run start",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "node node_modules/jest/bin/jest.js --watch",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
@@ -19,11 +20,11 @@
     "react": "16.8.3",
     "react-art": "16.6.3",
     "react-dom": "16.6.3",
-    "react-native": "0.59.10",
-    "react-native-modal": "^11.5.6",
+    "react-native": "0.64.0",
+    "react-native-modal": "^11.10.0",
     "react-native-popup-dialog": "^0.18.3",
     "react-native-rxdialog": "^1.0.6",
-    "react-native-web": "0.11.7"
+    "react-native-web": "0.15.7"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

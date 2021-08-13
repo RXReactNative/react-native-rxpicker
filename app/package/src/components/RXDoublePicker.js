@@ -1,10 +1,10 @@
 /**
- * 
- * 
+ *
+ *
  * @flow
  */
 'use strict'
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -131,22 +131,22 @@ export default class RXDoublePicker extends Component {
     lastList.push(emptyArray)
     proportionArray.push(1);
 
-    return <RXPicker 
-            {...other}
-            style={[{paddingBottom: 20}, style]}
+    return <RXPicker
+      {...other}
+      style={[{ paddingBottom: 20 }, style]}
 
-            // 数据源
-            list={ lastList }
+      // 数据源
+      list={lastList}
 
-            // 选中的
-            value={valueArray}
-            
-            // 分区比例，注意和list数据源长度保持一致 (如果一致的，可以不写)
-            proportion={ proportionArray }
-            // 选中项距离顶部的偏移个数
-            offsetCount={ 2 }
-            onChange={this.onChange}
-            onConfirm={this.onConfirm}
-          />
+      // 选中的
+      value={valueArray}
+
+      // 分区比例，注意和list数据源长度保持一致 (如果一致的，可以不写)
+      proportion={proportionArray}
+      // 选中项距离顶部的偏移个数
+      offsetCount={2}
+      onChange={this.onChange}
+      onConfirm={this.onConfirm}
+    />
   }
 }

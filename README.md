@@ -1,34 +1,26 @@
-# react-native-rxpicker
+# react-native-picker
 
 滚动选择器
 
-## support 
+## support
 #### react-native
 #### react-native-web
 
 
-## npm install
+### npm install
 ```sh
-  npm i react-native-rxpicker
-  # or
-  npm i react-native-rxpicker -S
-
-  # ----------------------------------
-
-  npm i react-native-rxpicker --save-dev
-  # or
-  npm i react-native-rxpicker -D
+  npm i react-native-picker -S
 ```
 
-
-## yarn 
+### yarn
 ```sh
-  yarn add react-native-rxpicker
-  # ----------------------------------
-  yarn add react-native-rxpicker --dev
-  yarn add react-native-rxpicker --peer
-  yarn add react-native-rxpicker --optional
+  yarn add react-native-picker --dev
 ```
+
+## Usage
+
+- [demo](https://github.com/RXReactNative/react-native-rxpicker/tree/master/app/components/rxdialog/core/RXDialogPicker.js)
+
 
 > 参考：
 - beeshell - ScrollPicker -->  https://github.com/Meituan-Dianping/beeshell

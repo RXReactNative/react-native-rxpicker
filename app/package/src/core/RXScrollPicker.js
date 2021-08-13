@@ -6,7 +6,7 @@
  * @flow
  */
 "use strict"
-import React, {Component} from "react"
+import React, { Component } from "react"
 import { StyleSheet, View, Text, PixelRatio, ScrollView } from "react-native"
 
 import PropTypes from 'prop-types'
@@ -50,7 +50,7 @@ export default class RXScrollPicker extends Component {
   static defaultProps = {
     ...View.defaultProps,
     // renderItem: (e)=> { return null },
-    onChange: (scrollIndex = 0, targetItemIndex = 0) => {},
+    onChange: (scrollIndex = 0, targetItemIndex = 0) => { },
   };
 
   constructor(props) {
@@ -218,7 +218,7 @@ export default class RXScrollPicker extends Component {
   }
 
   resizeContainerHeight(targetItemHeight) {
-    const {offsetCount} = this.props;
+    const { offsetCount } = this.props;
     const ret = targetItemHeight + 2 * (targetItemHeight * offsetCount);
     return ret;
   }
@@ -276,8 +276,8 @@ export default class RXScrollPicker extends Component {
   }
 
   scrollProper(scrollIndex, scrollHeight, animated) {
-    const {targetItemHeight, list} = this.state;
-    const {offsetCount} = this.props;
+    const { targetItemHeight, list } = this.state;
+    const { offsetCount } = this.props;
     const scrollListLength = list[scrollIndex].length;
     let newScrollHeight;
     const min = 0;
@@ -381,13 +381,13 @@ export default class RXScrollPicker extends Component {
                 this.props.renderItem
                   ? this.props.renderItem(item, index)
                   : React.createElement(
-                      Text,
-                      {
-                        style: [styles.targetItemContent],
-                        numberOfLines: 1,
-                      },
-                      typeof item === 'object' ? item.label : item
-                    )
+                    Text,
+                    {
+                      style: [styles.targetItemContent],
+                      numberOfLines: 1,
+                    },
+                    typeof item === 'object' ? item.label : item
+                  )
               );
             })
           )
