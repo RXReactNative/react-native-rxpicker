@@ -11,7 +11,7 @@ export function RXThisYear() {
 // 年份
 export function RXYearArray() {
   const year = this.RXThisYear();
-  var yearArray = [];
+  const yearArray = [];
   for (let i = year - 20; i < year + 20; i++) {
     yearArray.push(i);
   }
@@ -26,7 +26,7 @@ export function RXMonthArray() {
 
 // 时间
 export function RXADay24Hours(isConvert2Digit = false) {
-  var minuteArray = [];
+  const minuteArray = [];
   for (let i = 0; i <= 24; i++) {
     const index = isConvert2Digit ? RXConvert2Digit(i) : i;
     const time = index + ':00';

@@ -19,7 +19,7 @@ export default class RXDoublePicker extends Component {
 
     this.resultIndexArray = [0, 0];
 
-    let value = this.getDoubleValue(props);
+    const value = this.getDoubleValue(props);
     this.state = {
       value
     };
@@ -28,8 +28,8 @@ export default class RXDoublePicker extends Component {
   getValue(index = 0, list = [], selectValue = null, valueKey = null) {
     if (!selectValue) return null;
     if (typeof selectValue === 'string' || typeof selectValue === 'number') {
-      for (var i = 0; i < list.length; i++) {
-        let item = list[i] || '';
+      for (let i = 0; i < list.length; i++) {
+        const item = list[i] || '';
         if (item === selectValue) {
           this.resultIndexArray[index] = i || 0;
           return i;
@@ -37,9 +37,9 @@ export default class RXDoublePicker extends Component {
       }
       return 0;
     } else if (typeof selectValue === 'object' && valueKey) {
-      for (var i = 0; i < list.length; i++) {
-        let item = list[i] || {};
-        let value = item[valueKey];
+      for (let i = 0; i < list.length; i++) {
+        const item = list[i] || {};
+        const value = item[valueKey];
         if (value === selectValue) {
           this.resultIndexArray[index] = i || 0;
           return i;
@@ -50,15 +50,15 @@ export default class RXDoublePicker extends Component {
   }
 
   getDoubleValue(props) {
-    let selectValues = props.selectValues;
-    let valueKey = props.valueKey;
+    const selectValues = props.selectValues;
+    const valueKey = props.valueKey;
     const list = props.list || [];
     if (!Array.isArray(selectValues)) return null;
-    var value = [];
-    for (var i = 0; i < list.length; i++) {
+    const value = [];
+    for (let i = 0; i < list.length; i++) {
       const array = list[i] || [];
       if (selectValues.length > i) {
-        let selectValue = selectValues[i];
+        const selectValue = selectValues[i];
         value.push(this.getValue(i, array, selectValue, valueKey));
       } else {
         value.push(0);
@@ -74,12 +74,12 @@ export default class RXDoublePicker extends Component {
           other = _objectWithoutProperties(_props, ['style', 'list']);
     const { value } = this.state;
     // 前后的 空数组 处理
-    let emptyArray = [];
-    let lastList = [emptyArray];
-    var proportionArray = [1];
-    var valueArray = [0].concat(value).concat(0);
-    for (var i = 0; i < list.length; i++) {
-      let array = list[i] || [];
+    const emptyArray = [];
+    const lastList = [emptyArray];
+    const proportionArray = [1];
+    const valueArray = [0].concat(value).concat(0);
+    for (let i = 0; i < list.length; i++) {
+      const array = list[i] || [];
       lastList.push(array);
       proportionArray.push(1);
     }
@@ -127,16 +127,16 @@ var _initialiseProps = function () {
       console.warn('RXDoublePicker 数组越界');
       return;
     }
-    let length = this.resultIndexArray.length;
-    var resultArray = [];
-    for (var i = 0; i < length; i++) {
-      let index = this.resultIndexArray[i] || 0;
-      let array = list[i] || [];
+    const length = this.resultIndexArray.length;
+    const resultArray = [];
+    for (let i = 0; i < length; i++) {
+      const index = this.resultIndexArray[i] || 0;
+      const array = list[i] || [];
       if (index > array.length) {
         console.warn('RXDoublePicker 数组越界');
         resultArray.push('');
       } else {
-        let value = array[index];
+        const value = array[index];
         resultArray.push(value);
       }
     }

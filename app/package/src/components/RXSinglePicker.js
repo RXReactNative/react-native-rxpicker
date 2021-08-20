@@ -37,23 +37,23 @@ export default class RXSinglePicker extends Component {
 
     this.resultIndex = 0;
 
-    let value = this.getValue(props);
+    const value = this.getValue(props);
     this.state = {
       value,
     }
   }
 
   getValue(props) {
-    let selectValue = props.selectValue;
-    let valueKey = props.valueKey;
+    const selectValue = props.selectValue;
+    const valueKey = props.valueKey;
 
     const list = props.list || [];
     if (!selectValue) {
       return null;
     }
     if (typeof selectValue === 'string' || typeof selectValue === 'number') {
-      for (var i = 0; i < list.length; i++) {
-        let item = list[i] || '';
+      for (let i = 0; i < list.length; i++) {
+        const item = list[i] || '';
         if (item === selectValue) {
           this.resultIndex = i || 0;
           return [i];
@@ -62,9 +62,9 @@ export default class RXSinglePicker extends Component {
       return null;
     }
     else if (typeof selectValue === 'object' && valueKey) {
-      for (var i = 0; i < list.length; i++) {
-        let item = list[i] || {};
-        let value = item[valueKey];
+      for (let i = 0; i < list.length; i++) {
+        const item = list[i] || {};
+        const value = item[valueKey];
         if (value === selectValue) {
           this.resultIndex = i || 0;
           return [i];
@@ -89,7 +89,7 @@ export default class RXSinglePicker extends Component {
       return;
     }
     // console.log('this.resultIndex='+this.resultIndex);
-    let item = list[this.resultIndex] || '';
+    const item = list[this.resultIndex] || '';
     onConfirm && onConfirm(item);
   }
 

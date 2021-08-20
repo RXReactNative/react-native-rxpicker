@@ -53,6 +53,7 @@ export default class BBDoublePicker extends RXDialogPicker {
 
     // No click events were written
     // Just to show the ability to support customization
+    // 仅仅为了 说明 picker 支持 可以自定 header 的功能，并不是一定需要的
     const diyHeaderView = (
       <View style={styles.tabBarView}>
         <Text style={styles.tabBarViewLeft}>close</Text>

@@ -29,7 +29,7 @@ export default class BBTrailTimePicker extends RXDialogPicker {
   constructor(props) {
     super(props);
 
-    let now = new Date();
+    const now = new Date();
     this.state = ({
       selectValues: now, // 当前日期
       limitDay: 30, // 最少天数 (最早从这月出，到今天，，，不会到上个月)

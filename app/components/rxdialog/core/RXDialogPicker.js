@@ -6,6 +6,13 @@
  *
  * -------------------------------------------
  *
+ * react-native-rxpicker    本身就是 ui展示库，没有动画
+ *
+ * 而 此文件，就为了 给 picker 的库 添加 动画
+ *
+ *
+ *
+ * 如果不需要动画，也可以直接用，不一定需要封装一下
 **/
 
 'use strict'
@@ -27,9 +34,9 @@ import {
   DeviceHeight,
 } from 'react-native-rxdialog'
 
-import {
-  RXPickerStyle
-} from '../../../package/index'
+// import {
+//   RXPickerStyle
+// } from '../../../package/index'
 
 const width = DeviceWidth;
 const height = DeviceHeight;

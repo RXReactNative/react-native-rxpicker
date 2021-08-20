@@ -27,7 +27,7 @@ export default class RXPicker extends Component {
   }
 
   renderButton(title = '', index = 0) {
-    let { leftStyle, rightStyle } = this.props;
+    const { leftStyle, rightStyle } = this.props;
     var style = {};
     if (index === 0) {
       style = [styles.btnLeftBar].concat(leftStyle);

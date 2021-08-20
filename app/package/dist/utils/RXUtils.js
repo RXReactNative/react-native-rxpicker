@@ -1,6 +1,6 @@
 
 export function RXConfigArray(length = 0) {
-  var tempArray = [];
+  const tempArray = [];
   for (let i = 0; i < length; i++) {
     tempArray.push(i);
   }
@@ -8,7 +8,7 @@ export function RXConfigArray(length = 0) {
 }
 
 export function RXConfigMap(length = 0) {
-  var tempMap = {};
+  const tempMap = {};
   for (let i = 0; i < length; i++) {
     tempMap[i] = 0;
   }

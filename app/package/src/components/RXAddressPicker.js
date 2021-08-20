@@ -15,21 +15,21 @@ export default class RXAddressPicker extends Component {
   constructor(props) {
     super(props);
     this.addressList = props.addressList || [];
-    let selectValues = props.selectValues || '';
+    const selectValues = props.selectValues || '';
     console.log('add selectValues=', selectValues)
-    let result = AddressUtil.getNameWithCodes(this.addressList, selectValues) || {};
+    const result = AddressUtil.getNameWithCodes(this.addressList, selectValues) || {};
 
-    let provinceArray = result.provinceArray || [];
+    const provinceArray = result.provinceArray || [];
     this.provinceIndex = result.provinceIndex || 0;
     this.provinceCode = result.provinceCode || 0;
     this.provinceName = result.provinceName || '';
 
-    let cityArray = result.cityArray || [];
+    const cityArray = result.cityArray || [];
     this.cityIndex = result.cityIndex || 0;
     this.cityCode = result.cityCode || 0;
     this.cityName = result.cityName || '';
 
-    let areaArray = result.areaArray || [];
+    const areaArray = result.areaArray || [];
     this.areaIndex = result.areaIndex || 0;
     this.areaCode = result.areaCode || 0;
     this.areaName = result.areaName || '';
@@ -54,18 +54,18 @@ export default class RXAddressPicker extends Component {
 
     if (scrollIndex === 0) {
       this.provinceIndex = targetItemIndex;
-      let provinceDict = this.allProvinceArray[this.provinceIndex] || {};
+      const provinceDict = this.allProvinceArray[this.provinceIndex] || {};
       this.provinceCode = provinceDict.cityId || 0;
       this.provinceName = provinceDict.cityName || '';
 
-      let cityDict = AddressUtil.getArrayWithParent(this.allCityArray, this.provinceCode) || {};
-      let cityArray = cityDict.array || [];
+      const cityDict = AddressUtil.getArrayWithParent(this.allCityArray, this.provinceCode) || {};
+      const cityArray = cityDict.array || [];
       this.cityIndex = cityDict.index || 0;
       this.cityCode = cityDict.id || 0;
       this.cityName = cityDict.name || '';
 
-      let areaDict = AddressUtil.getArrayWithParent(this.allAreaArray, this.cityCode) || {};
-      let areaArray = areaDict.array || [];
+      const areaDict = AddressUtil.getArrayWithParent(this.allAreaArray, this.cityCode) || {};
+      const areaArray = areaDict.array || [];
       this.areaIndex = areaDict.index || 0;
       this.areaCode = areaDict.id || 0;
       this.areaName = areaDict.name || '';
@@ -73,13 +73,13 @@ export default class RXAddressPicker extends Component {
     }
     else if (scrollIndex === 1) {
       this.cityIndex = targetItemIndex;
-      let cityDict = AddressUtil.getArrayWithCityName(this.state.cityArray, this.cityIndex, this.allCityArray) || {};
+      const cityDict = AddressUtil.getArrayWithCityName(this.state.cityArray, this.cityIndex, this.allCityArray) || {};
       this.cityArray = cityDict.array || [];
       this.cityCode = cityDict.id || 0;
       this.cityName = cityDict.name || '';
 
-      let areaDict = AddressUtil.getArrayWithParent(this.allAreaArray, this.cityCode) || {};
-      let areaArray = areaDict.array || [];
+      const areaDict = AddressUtil.getArrayWithParent(this.allAreaArray, this.cityCode) || {};
+      const areaArray = areaDict.array || [];
       this.areaIndex = areaDict.index || 0;
       this.areaCode = areaDict.id || 0;
       this.areaName = areaDict.name || '';
@@ -87,7 +87,7 @@ export default class RXAddressPicker extends Component {
     }
     else if (scrollIndex === 2) {
       this.areaIndex = targetItemIndex;
-      let areaDict = AddressUtil.getArrayWithCityName(this.state.areaArray, this.areaIndex, this.allAreaArray) || {};
+      const areaDict = AddressUtil.getArrayWithCityName(this.state.areaArray, this.areaIndex, this.allAreaArray) || {};
       this.areaCode = areaDict.id || 0;
       this.areaName = areaDict.name || '';
     }
@@ -96,7 +96,7 @@ export default class RXAddressPicker extends Component {
   onConfirm = () => {
     const { onConfirm } = this.props;
     setTimeout(() => {
-      let params = {
+      const params = {
         provinceCode: this.provinceCode,
         provinceName: this.provinceName,
 
@@ -149,9 +149,9 @@ export const AddressUtil = {
     if (!Array.isArray(codeArray)) {
       codeArray = [0, 0, 0];
     }
-    var codeValue_0 = '';
-    var codeValue_1 = '';
-    var codeValue_2 = '';
+    let codeValue_0 = '';
+    let codeValue_1 = '';
+    let codeValue_2 = '';
     if (codeArray.length > 0) codeValue_0 = codeArray[0] || 0;
     if (codeArray.length > 1) codeValue_1 = codeArray[1] || 0;
     if (codeArray.length > 2) codeValue_2 = codeArray[2] || 0;
@@ -160,27 +160,27 @@ export const AddressUtil = {
     codeValue_1 ? codeValue_1 = parseInt(codeValue_1) : codeValue_1 = 0;
     codeValue_2 ? codeValue_2 = parseInt(codeValue_2) : codeValue_2 = 0;
 
-    let allDict = AddressUtil.getPCA(array, codeValue_0);
-    let provinceArray = allDict.provinceArray || [];
-    let provinceIndex = allDict.index || 0;
-    let provinceCode = allDict.id || 0;
-    let provinceName = allDict.name || '';
+    const allDict = AddressUtil.getPCA(array, codeValue_0);
+    const provinceArray = allDict.provinceArray || [];
+    const provinceIndex = allDict.index || 0;
+    const provinceCode = allDict.id || 0;
+    const provinceName = allDict.name || '';
 
-    let allProvinceArray = allDict.allProvinceArray || [];
-    let allCityArray = allDict.allCityArray || [];
-    let allAreaArray = allDict.allAreaArray || [];
+    const allProvinceArray = allDict.allProvinceArray || [];
+    const allCityArray = allDict.allCityArray || [];
+    const allAreaArray = allDict.allAreaArray || [];
 
-    let cityDict = AddressUtil.getArrayWithParent(allCityArray, provinceCode, codeValue_1);
-    let cityArray = cityDict.array || [];
-    let cityIndex = cityDict.index || 0;
-    let cityCode = cityDict.id || 0;
-    let cityName = cityDict.name || '';
+    const cityDict = AddressUtil.getArrayWithParent(allCityArray, provinceCode, codeValue_1);
+    const cityArray = cityDict.array || [];
+    const cityIndex = cityDict.index || 0;
+    const cityCode = cityDict.id || 0;
+    const cityName = cityDict.name || '';
 
-    let areaDict = AddressUtil.getArrayWithParent(allAreaArray, cityCode, codeValue_2);
-    let areaArray = areaDict.array || [];
-    let areaIndex = areaDict.index || 0;
-    let areaCode = areaDict.code || 0;
-    let areaName = areaDict.name || '';
+    const areaDict = AddressUtil.getArrayWithParent(allAreaArray, cityCode, codeValue_2);
+    const areaArray = areaDict.array || [];
+    const areaIndex = areaDict.index || 0;
+    const areaCode = areaDict.code || 0;
+    const areaName = areaDict.name || '';
     return {
       allProvinceArray, allCityArray, allAreaArray,
 
@@ -192,27 +192,27 @@ export const AddressUtil = {
 
   getPCA(array = [], cityIdValue = '') {
     //{cityId: 3124, cityName: "崇左市", cityLevel: 2, parentId: 3015, cityCode: 144}
-    let provinceArray = [];
-    let allProvinceArray = [];
-    let allCityArray = [];
-    let allAreaArray = [];
+    const provinceArray = [];
+    const allProvinceArray = [];
+    const allCityArray = [];
+    const allAreaArray = [];
     array = array || [];
     if (!Array.isArray(array)) {
       console.warn('getArrayName-> `array` not array');
       return { allProvinceArray, allCityArray, allAreaArray, provinceArray, index: 0, id: 0, name: '' };
     }
 
-    var index = 0;
-    var id = 0;
-    var name = '';
+    let index = 0;
+    let id = 0;
+    let name = '';
     let firstItem = null;
     for (let i = 0; i < array.length; i++) {
-      let item = array[i] || {};
-      let cityLevel = item.cityLevel || 0;
+      const item = array[i] || {};
+      const cityLevel = item.cityLevel || 0;
       if (cityLevel === 1) {
-        let cityName = item.cityName || '';
+        const cityName = item.cityName || '';
         if (!id) {
-          let cityId = item.cityId || 0;
+          const cityId = item.cityId || 0;
           if (cityIdValue && cityId === cityIdValue) {
             id = cityId;
             name = cityName;
@@ -250,16 +250,16 @@ export const AddressUtil = {
       console.warn('getArrayName-> `array` not array');
       return { array: [], index: 0 };
     }
-    var newArray = [];
-    var index = 0;
-    var id = 0;
-    var name = '';
+    const newArray = [];
+    let index = 0;
+    let id = 0;
+    let name = '';
     let firstItem = null;
-    for (var i = 0; i < array.length; i++) {
-      let item = array[i] || {};
-      let parentId = item.parentId || 0;
-      let cityId = item.cityId || 0;
-      let cityName = item.cityName || '';
+    for (let i = 0; i < array.length; i++) {
+      const item = array[i] || {};
+      const parentId = item.parentId || 0;
+      const cityId = item.cityId || 0;
+      const cityName = item.cityName || '';
       if (pCityId && parentId === pCityId) {
         if (!id) {
           if (cityIdValue && cityId === cityIdValue) {
@@ -287,7 +287,7 @@ export const AddressUtil = {
   },
 
   getArrayWithCityName(array = [], index = 0, allArray = []) {
-    var id = 0;
+    let id = 0;
     let name = '';
     if (!Array.isArray(array)) {
       console.warn('getArrayName-> `array` not array');
@@ -300,8 +300,8 @@ export const AddressUtil = {
     name = array[index] || '';
     let firstItem = null;
     for (let i = 0; i < allArray.length; i++) {
-      let item = allArray[i] || {};
-      let itemName = item.cityName || '';
+      const item = allArray[i] || {};
+      const itemName = item.cityName || '';
       if (!firstItem) {
         firstItem = item;
       }
