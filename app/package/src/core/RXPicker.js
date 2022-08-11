@@ -1,6 +1,4 @@
 /**
- *
- *
  * @flow
  */
 'use strict'
@@ -11,7 +9,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import PropTypes, { element } from 'prop-types';
+import PropTypes from 'prop-types';
 import RXPickerStyle from './RXPickerStyle'
 import RXScrollPicker from './RXScrollPicker';
 

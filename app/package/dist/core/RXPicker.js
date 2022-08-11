@@ -6,7 +6,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import PropTypes, { element } from 'prop-types';
+import PropTypes from 'prop-types';
 import RXPickerStyle from './RXPickerStyle';
 import RXScrollPicker from './RXScrollPicker';
 
