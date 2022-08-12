@@ -73,7 +73,7 @@ export default class RXScrollPicker extends Component {
     };
   }
 
-  UNSAFE_componentDidMount() {
+  componentDidMount() {
     this.getUIData(this.containerRef, DEFAULT_CONTAINER_HEIGHT).then(data => {
       const { targetItemHeight } = data;
       const containerHeight = this.resizeContainerHeight(targetItemHeight);
