@@ -32,11 +32,6 @@ export default class RXDoublePicker extends Component {
     super(props);
 
     this.resultIndexArray = [0, 0];
-
-    const value = this.getDoubleValue(props);
-    this.state = {
-      value,
-    }
   }
 
   getValue(index = 0, list = [], selectValue = null, valueKey = null) {
@@ -64,7 +59,8 @@ export default class RXDoublePicker extends Component {
     }
   }
 
-  getDoubleValue(props) {
+  getDoubleValue() {
+    const props = this.props || {}
     const selectValues = props.selectValues;
     const valueKey = props.valueKey;
     const list = props.list || [];
@@ -117,7 +113,7 @@ export default class RXDoublePicker extends Component {
 
   render() {
     const { style, list, ...other } = this.props;
-    const { value } = this.state;
+    const value = this.getDoubleValue();
     // 前后的 空数组 处理
     const emptyArray = [];
     const lastList = [emptyArray];

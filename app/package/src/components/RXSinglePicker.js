@@ -36,14 +36,11 @@ export default class RXSinglePicker extends Component {
     super(props);
 
     this.resultIndex = 0;
-
-    const value = this.getValue(props);
-    this.state = {
-      value,
-    }
   }
 
-  getValue(props) {
+
+  getValue() {
+    const props = this.props || {}
     const selectValue = props.selectValue;
     const valueKey = props.valueKey;
 
@@ -95,7 +92,7 @@ export default class RXSinglePicker extends Component {
 
   render() {
     const { style, list, ...other } = this.props;
-    const { value } = this.state;
+    const value = this.getValue()
     return <RXPicker
       {...other}
       style={[{ paddingBottom: 20 }, style]}
